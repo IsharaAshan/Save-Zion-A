@@ -1,0 +1,422 @@
+{
+    "id": "d2847f9c-5c48-4fef-8fa2-7874610416ad",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "LevelA",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Video",
+            "id": "2034a34d-0793-4664-96c1-3109ff72887b",
+            "label": "clip_a",
+            "scope": "PUBLIC",
+            "x": 640,
+            "y": 360,
+            "videoKey": "1_1",
+            "videoAutoPlay": false,
+            "videoLoop": false
+        },
+        {
+            "type": "Video",
+            "id": "f7ea6176-7787-4978-89f5-e1cedb9f2a3a",
+            "label": "clip_b",
+            "scope": "PUBLIC",
+            "x": 640,
+            "y": 360,
+            "visible": false,
+            "videoKey": "1_2",
+            "videoAutoPlay": false
+        },
+        {
+            "type": "Video",
+            "id": "9206a158-f282-4214-a095-a7509e117e54",
+            "label": "clip_c",
+            "scope": "PUBLIC",
+            "x": 640,
+            "y": 360,
+            "visible": false,
+            "videoKey": "1_3",
+            "videoAutoPlay": false,
+            "videoLoop": false
+        },
+        {
+            "type": "Video",
+            "id": "c51b6df1-0215-484d-a717-1d75cbdb96e9",
+            "label": "clip_d",
+            "scope": "PUBLIC",
+            "x": 640,
+            "y": 360,
+            "visible": false,
+            "videoKey": "1_4",
+            "videoAutoPlay": false,
+            "videoLoop": false
+        },
+        {
+            "type": "Video",
+            "id": "9f08fc1b-87e4-4e85-8c1f-fa8cd97f5899",
+            "label": "restart_video",
+            "scope": "PUBLIC",
+            "x": 640,
+            "y": 360,
+            "visible": false,
+            "videoKey": "RestartVideo",
+            "videoAutoPlay": false,
+            "videoLoop": false
+        },
+        {
+            "type": "Container",
+            "id": "2e22d6a1-b8dd-47a1-9d83-46b08e7708bf",
+            "label": "quiz_panel",
+            "scope": "PUBLIC",
+            "x": 1022,
+            "y": 360,
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "d8b1a2cb-51f3-4a07-af29-11e954cd33f4",
+                    "label": "quizBackground",
+                    "texture": {
+                        "key": "QuizBackground"
+                    },
+                    "scaleX": 0.5,
+                    "scaleY": 0.6
+                },
+                {
+                    "type": "Container",
+                    "id": "58dc905e-56a4-4788-9e64-cea8d181bd58",
+                    "label": "answe_d",
+                    "x": -186,
+                    "y": 92,
+                    "list": [
+                        {
+                            "type": "Container",
+                            "id": "0d75e707-e0fd-4f98-bb5b-0dc1de14e983",
+                            "label": "toggle_button_d",
+                            "scope": "PUBLIC",
+                            "hitArea.shape": "RECTANGLE",
+                            "hitArea.x": -16.94999999999999,
+                            "hitArea.y": -16.94999999999999,
+                            "hitArea.width": 33.89999999999998,
+                            "hitArea.height": 33.89999999999998,
+                            "list": [
+                                {
+                                    "type": "Image",
+                                    "id": "c6f68ab7-a716-4e3f-8ae4-e7390ea21dc3",
+                                    "label": "toggle_button_background_3",
+                                    "texture": {
+                                        "key": "toggle_button_background"
+                                    },
+                                    "scaleX": 0.1,
+                                    "scaleY": 0.1
+                                },
+                                {
+                                    "type": "Image",
+                                    "id": "a3317144-39ea-461e-9875-c97325cf5175",
+                                    "label": "toggle_button_front_3",
+                                    "texture": {
+                                        "key": "toggle_button_front"
+                                    },
+                                    "scaleX": 0.1,
+                                    "scaleY": 0.1,
+                                    "visible": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Text",
+                            "id": "e1d4abfe-7294-44ea-ba13-576bcf19d53a",
+                            "label": "text_3",
+                            "x": 141,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "D.The Governor-General’s Mandate",
+                            "resolution": 2,
+                            "fontFamily": "BebasNeue-Regular",
+                            "fontSize": "18px",
+                            "color": "#000000ff"
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "e1af7444-5a6a-48f3-9260-911086181ba8",
+                    "label": "answe_c",
+                    "x": -186,
+                    "y": 48,
+                    "list": [
+                        {
+                            "type": "Container",
+                            "id": "9b974375-9951-4ef0-8eaf-e6933301d54f",
+                            "label": "toggle_button_c",
+                            "scope": "PUBLIC",
+                            "hitArea.shape": "RECTANGLE",
+                            "hitArea.x": -16.94999999999999,
+                            "hitArea.y": -16.94999999999999,
+                            "hitArea.width": 33.89999999999998,
+                            "hitArea.height": 33.89999999999998,
+                            "list": [
+                                {
+                                    "type": "Image",
+                                    "id": "70b4ae9e-37a4-484b-a884-160aafee1275",
+                                    "label": "toggle_button_background_2",
+                                    "texture": {
+                                        "key": "toggle_button_background"
+                                    },
+                                    "scaleX": 0.1,
+                                    "scaleY": 0.1
+                                },
+                                {
+                                    "type": "Image",
+                                    "id": "12f174ac-71a9-4e39-983e-68a6b20e6e27",
+                                    "label": "toggle_button_front_2",
+                                    "texture": {
+                                        "key": "toggle_button_front"
+                                    },
+                                    "scaleX": 0.1,
+                                    "scaleY": 0.1,
+                                    "visible": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Text",
+                            "id": "5bb3931b-0463-4d01-a4fc-3a8543bfc94c",
+                            "label": "text_2",
+                            "x": 123,
+                            "y": 10,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "C. The Charter of Parliament\n",
+                            "resolution": 2,
+                            "fontFamily": "BebasNeue-Regular",
+                            "fontSize": "18px",
+                            "color": "#000000ff"
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "9b8f1bd6-9751-44cd-b30f-455d727ae927",
+                    "label": "answe_b",
+                    "x": -186,
+                    "y": 3,
+                    "list": [
+                        {
+                            "type": "Container",
+                            "id": "0ce99664-8110-41b7-af42-06d84204d809",
+                            "label": "toggle_button_b",
+                            "scope": "PUBLIC",
+                            "hitArea.shape": "RECTANGLE",
+                            "hitArea.x": -16.94999999999999,
+                            "hitArea.y": -16.94999999999999,
+                            "hitArea.width": 33.89999999999998,
+                            "hitArea.height": 33.89999999999998,
+                            "list": [
+                                {
+                                    "type": "Image",
+                                    "id": "3c6605ae-ea09-426f-9071-fbcadf12a7dc",
+                                    "label": "toggle_button_background_1",
+                                    "texture": {
+                                        "key": "toggle_button_background"
+                                    },
+                                    "scaleX": 0.1,
+                                    "scaleY": 0.1
+                                },
+                                {
+                                    "type": "Image",
+                                    "id": "92d267f7-a02e-457f-9b4c-c7d7a44c860f",
+                                    "label": "toggle_button_front_1",
+                                    "texture": {
+                                        "key": "toggle_button_front"
+                                    },
+                                    "scaleX": 0.1,
+                                    "scaleY": 0.1,
+                                    "visible": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Text",
+                            "id": "197bdb0b-2c15-402d-a02a-4a06f3390db9",
+                            "label": "text",
+                            "x": 123,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "B. The Constitution of Jamaica",
+                            "resolution": 2,
+                            "fontFamily": "BebasNeue-Regular",
+                            "fontSize": "18px",
+                            "color": "#000000ff"
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "99531123-609e-484d-8c05-0673019eaff9",
+                    "label": "answe_a",
+                    "x": -186,
+                    "y": -39,
+                    "list": [
+                        {
+                            "type": "Container",
+                            "id": "6f5efdd0-905d-451b-a9a5-0181ec367175",
+                            "label": "toggle_button_a",
+                            "scope": "PUBLIC",
+                            "hitArea.shape": "RECTANGLE",
+                            "hitArea.x": -16.94999999999999,
+                            "hitArea.y": -16.94999999999999,
+                            "hitArea.width": 33.89999999999998,
+                            "hitArea.height": 33.89999999999998,
+                            "list": [
+                                {
+                                    "type": "Image",
+                                    "id": "249a47cd-4542-488d-a314-aeb77f03b00c",
+                                    "label": "toggle_button_background",
+                                    "texture": {
+                                        "key": "toggle_button_background"
+                                    },
+                                    "scaleX": 0.1,
+                                    "scaleY": 0.1
+                                },
+                                {
+                                    "type": "Image",
+                                    "id": "88a82eca-6426-4fd4-bbf8-44dd2e5055e7",
+                                    "label": "toggle_button_front",
+                                    "texture": {
+                                        "key": "toggle_button_front"
+                                    },
+                                    "scaleX": 0.1,
+                                    "scaleY": 0.1,
+                                    "visible": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Text",
+                            "id": "a7d9e00c-44d6-4503-9e7c-08b80055f673",
+                            "label": "text_1",
+                            "x": 123,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "A. The Political Code of Rights",
+                            "resolution": 2,
+                            "fontFamily": "BebasNeue-Regular",
+                            "fontSize": "18px",
+                            "color": "#000000ff"
+                        }
+                    ]
+                },
+                {
+                    "type": "Text",
+                    "id": "8283e34f-1da5-43be-9e4b-bc54751e29c4",
+                    "label": "question",
+                    "x": -2,
+                    "y": -85,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Where does the power of the Jamaican people to choose their \nleaders officially come from?\n",
+                    "resolution": 2,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "20px",
+                    "color": "#000000ff"
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "6fcc5e8d-051d-49cb-944b-72f16b1fd378",
+            "label": "game_over_panel",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "52035eba-7635-4353-8e5b-f2c1b6053c5e",
+                    "label": "rectangle_1",
+                    "x": 640,
+                    "y": 360,
+                    "scaleX": 10,
+                    "scaleY": 6,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "fillAlpha": 0.79,
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Container",
+                    "id": "377cb9a5-fab3-4197-aeb8-d377b576273b",
+                    "label": "game_over_pop_up",
+                    "x": 640,
+                    "y": 360,
+                    "list": [
+                        {
+                            "type": "Rectangle",
+                            "id": "930b932e-90fd-4949-9117-b5acaf7a1c68",
+                            "label": "rectangle_2",
+                            "scaleX": 3.25,
+                            "scaleY": 1.8,
+                            "isFilled": true,
+                            "fillColor": "#ffec80",
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Rectangle",
+                            "id": "157b9902-aeb7-405a-bc68-5a78e109baa7",
+                            "label": "rectangle",
+                            "y": -72,
+                            "scaleX": 3.2533579512889683,
+                            "scaleY": 0.5799520779856571,
+                            "isFilled": true,
+                            "fillColor": "#725419",
+                            "width": 128,
+                            "height": 128
+                        },
+                        {
+                            "type": "Text",
+                            "id": "5f9f85ff-35e1-4a4b-a369-0323e9db8401",
+                            "label": "text_4",
+                            "x": -137,
+                            "y": -105,
+                            "scaleY": 0.8329385748504211,
+                            "text": "GAME OVER",
+                            "resolution": 2,
+                            "align": "center",
+                            "fontFamily": "BebasNeue-Regular",
+                            "fontSize": "75px"
+                        },
+                        {
+                            "type": "Image",
+                            "id": "80fec053-9e51-44ff-9b8e-616a76b63528",
+                            "label": "restart_button",
+                            "scope": "PUBLIC",
+                            "hitArea.shape": "RECTANGLE",
+                            "hitArea.width": 140,
+                            "hitArea.height": 42,
+                            "texture": {
+                                "key": "RestartButton"
+                            },
+                            "y": 49
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

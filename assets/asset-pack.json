@@ -1,0 +1,303 @@
+{
+    "section1": {
+        "files": [
+            {
+                "url": [
+                    "assets/Videos/levelAClips/1_1.mp4"
+                ],
+                "type": "video",
+                "key": "1_1"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelAClips/1_2.mp4"
+                ],
+                "type": "video",
+                "key": "1_2"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelAClips/1_3.mp4"
+                ],
+                "type": "video",
+                "key": "1_3"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelAClips/1_4.mp4"
+                ],
+                "type": "video",
+                "key": "1_4"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelBClips/2_1.mp4"
+                ],
+                "type": "video",
+                "key": "2_1"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelBClips/2_2.mp4"
+                ],
+                "type": "video",
+                "key": "2_2"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelBClips/2_3.mp4"
+                ],
+                "type": "video",
+                "key": "2_3"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelBClips/2_4.mp4"
+                ],
+                "type": "video",
+                "key": "2_4"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelCClips/3_1.mp4"
+                ],
+                "type": "video",
+                "key": "3_1"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelCClips/3_2.mp4"
+                ],
+                "type": "video",
+                "key": "3_2"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelCClips/3_3.mp4"
+                ],
+                "type": "video",
+                "key": "3_3"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelCClips/3_4.mp4"
+                ],
+                "type": "video",
+                "key": "3_4"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelDClips/4_1.mp4"
+                ],
+                "type": "video",
+                "key": "4_1"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelDClips/4_2.mp4"
+                ],
+                "type": "video",
+                "key": "4_2"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelDClips/4_3.mp4"
+                ],
+                "type": "video",
+                "key": "4_3"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelDClips/4_4.mp4"
+                ],
+                "type": "video",
+                "key": "4_4"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelEClips/5_1.mp4"
+                ],
+                "type": "video",
+                "key": "5_1"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelEClips/5_2.mp4"
+                ],
+                "type": "video",
+                "key": "5_2"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelEClips/5_3.mp4"
+                ],
+                "type": "video",
+                "key": "5_3"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelEClips/5_4.mp4"
+                ],
+                "type": "video",
+                "key": "5_4"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelFClips/6_1.mp4"
+                ],
+                "type": "video",
+                "key": "6_1"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelFClips/6_2.mp4"
+                ],
+                "type": "video",
+                "key": "6_2"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelFClips/6_3.mp4"
+                ],
+                "type": "video",
+                "key": "6_3"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelFClips/6_4.mp4"
+                ],
+                "type": "video",
+                "key": "6_4"
+            },
+            {
+                "url": [
+                    "assets/Audio/Level Sounds/Back Road.ogg"
+                ],
+                "type": "audio",
+                "key": "back _road"
+            },
+            {
+                "url": "assets/Fonts/BebasNeue-Regular.ttf",
+                "format": "truetype",
+                "descriptors": {},
+                "type": "font",
+                "key": "BebasNeue-Regular"
+            },
+            {
+                "url": [
+                    "assets/Audio/Level Sounds/Blue Mountain.ogg"
+                ],
+                "type": "audio",
+                "key": "blue_mountain"
+            },
+            {
+                "url": [
+                    "assets/Audio/ui_button_simple_click_04.wav"
+                ],
+                "type": "audio",
+                "key": "button_click"
+            },
+            {
+                "url": [
+                    "assets/Audio/Level Sounds/Champs - Stadium.ogg"
+                ],
+                "type": "audio",
+                "key": "champs_stadium"
+            },
+            {
+                "url": [
+                    "assets/Audio/Level Sounds/Dunns River.ogg"
+                ],
+                "type": "audio",
+                "key": "dunns_driver"
+            },
+            {
+                "url": [
+                    "assets/Audio/Level Sounds/Flat Bridge.ogg"
+                ],
+                "type": "audio",
+                "key": "flat_bridge"
+            },
+            {
+                "url": [
+                    "assets/Audio/Level Sounds/Half Way TREE.ogg"
+                ],
+                "type": "audio",
+                "key": "halfway_tree"
+            },
+            {
+                "url": [
+                    "assets/Videos/menu_clip.mp4"
+                ],
+                "type": "video",
+                "key": "menu_clip"
+            },
+            {
+                "url": [
+                    "assets/Audio/mission-impossible.wav"
+                ],
+                "type": "audio",
+                "key": "mi_sound"
+            },
+            {
+                "url": "assets/Images/PlayButton.png",
+                "type": "image",
+                "key": "play_button"
+            },
+            {
+                "url": [
+                    "assets/Audio/ui_menu_popup_message_04.wav"
+                ],
+                "type": "audio",
+                "key": "pop_up"
+            },
+            {
+                "url": "assets/Images/QuizBackground.png",
+                "type": "image",
+                "key": "QuizBackground"
+            },
+            {
+                "url": "assets/Images/RestartButton.png",
+                "type": "image",
+                "key": "RestartButton"
+            },
+            {
+                "url": [
+                    "assets/Videos/RestartVideo.mp4"
+                ],
+                "type": "video",
+                "key": "RestartVideo"
+            },
+            {
+                "url": "assets/Images/Title.png",
+                "type": "image",
+                "key": "Title"
+            },
+            {
+                "url": "assets/Images/toggle_button_background.png",
+                "type": "image",
+                "key": "toggle_button_background"
+            },
+            {
+                "url": "assets/Images/toggle_button_front.png",
+                "type": "image",
+                "key": "toggle_button_front"
+            },
+            {
+                "url": [
+                    "assets/Audio/ui_menu_button_scroll_03.wav"
+                ],
+                "type": "audio",
+                "key": "toggle_click"
+            }
+        ]
+    },
+    "meta": {
+        "app": "Phaser Editor 2D - Asset Pack Editor",
+        "contentType": "phasereditor2d.pack.core.AssetContentType",
+        "url": "https://phasereditor2d.com",
+        "version": 2,
+        "showAllFilesInBlocks": false,
+        "visible": true
+    }
+}
