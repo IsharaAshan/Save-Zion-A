@@ -226,6 +226,60 @@
                 "key": "halfway_tree"
             },
             {
+                "url": "assets/Images/home_button.png",
+                "type": "image",
+                "key": "home_button"
+            },
+            {
+                "url": [
+                    "assets/Audio/level_1_interduction.mp3"
+                ],
+                "type": "audio",
+                "key": "level_a_interduction"
+            },
+            {
+                "url": [
+                    "assets/Audio/level_b_interduction.mp3"
+                ],
+                "type": "audio",
+                "key": "level_b_interduction"
+            },
+            {
+                "url": [
+                    "assets/Audio/level_c_interduction.mp3"
+                ],
+                "type": "audio",
+                "key": "level_c_interduction"
+            },
+            {
+                "url": [
+                    "assets/Audio/level_d_interduction.mp3"
+                ],
+                "type": "audio",
+                "key": "level_d_interduction"
+            },
+            {
+                "url": [
+                    "assets/Audio/level_e_interduction.mp3"
+                ],
+                "type": "audio",
+                "key": "level_e_interduction"
+            },
+            {
+                "url": [
+                    "assets/Audio/level_f_interduction.mp3"
+                ],
+                "type": "audio",
+                "key": "level_f_interduction"
+            },
+            {
+                "url": [
+                    "assets/Audio/level_g_interduction.mp3"
+                ],
+                "type": "audio",
+                "key": "level_g_interduction"
+            },
+            {
                 "url": [
                     "assets/Videos/menu_clip.mp4"
                 ],
@@ -289,6 +343,13 @@
                 ],
                 "type": "audio",
                 "key": "toggle_click"
+            },
+            {
+                "url": [
+                    "assets/Audio/win_sound.wav"
+                ],
+                "type": "audio",
+                "key": "win_sound"
             }
         ]
     },

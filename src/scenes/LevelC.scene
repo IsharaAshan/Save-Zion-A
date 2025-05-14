@@ -78,7 +78,6 @@
             "scope": "PUBLIC",
             "x": 1001,
             "y": 417,
-            "visible": false,
             "list": [
                 {
                     "type": "Image",
@@ -114,9 +113,7 @@
                                     "label": "toggle_button_background_3",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -171,9 +168,7 @@
                                     "label": "toggle_button_background_2",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -228,9 +223,7 @@
                                     "label": "toggle_button_background_1",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -284,9 +277,7 @@
                                     "label": "toggle_button_background",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -408,8 +399,70 @@
                                 "key": "RestartButton"
                             },
                             "y": 49
+                        },
+                        {
+                            "type": "Text",
+                            "id": "c36493a0-f954-45de-adb4-11a78fa46c7b",
+                            "label": "game_over msg",
+                            "scope": "PUBLIC",
+                            "y": 200,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Answer Wrong Game Over ! \nThen the button to restart",
+                            "align": "center",
+                            "fontFamily": "BebasNeue-Regular",
+                            "fontSize": "57px"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "383160d3-2219-4ad9-83e5-87a62ca4e9db",
+            "label": "Interduction_panel",
+            "scope": "PUBLIC",
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "287ab4f9-23c3-4108-a4b9-06fd7e9b0c1f",
+                    "label": "interduction_blackScreen",
+                    "x": 640,
+                    "y": 360,
+                    "scaleX": 10,
+                    "scaleY": 6,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Text",
+                    "id": "0ec47036-d7d8-4d10-a410-f164b5f78177",
+                    "label": "interdutcion_discription",
+                    "scope": "PUBLIC",
+                    "x": 640,
+                    "y": 360,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Dunn's River made sense—'cause birds shouldn’t want to get wet,\nBut with Babylon so determined , this wasn’t a safe bet.",
+                    "resolution": 3,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "40px"
+                },
+                {
+                    "type": "Text",
+                    "id": "46681a0f-23eb-44fe-b19e-4d9e54278948",
+                    "label": "Interduction_Title",
+                    "scope": "PUBLIC",
+                    "x": 640,
+                    "y": 227,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Dunn's River",
+                    "resolution": 3,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "50px"
                 }
             ]
         }

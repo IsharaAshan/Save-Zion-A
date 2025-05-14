@@ -113,9 +113,7 @@
                                     "label": "toggle_button_background_3",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -170,9 +168,7 @@
                                     "label": "toggle_button_background_2",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -227,9 +223,7 @@
                                     "label": "toggle_button_background_1",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -284,9 +278,7 @@
                                     "label": "toggle_button_background",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -409,8 +401,71 @@
                                 "key": "RestartButton"
                             },
                             "y": 49
+                        },
+                        {
+                            "type": "Text",
+                            "id": "33431aa8-c836-4342-a55d-e33a5b4d162f",
+                            "label": "game_over msg",
+                            "scope": "PUBLIC",
+                            "y": 200,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Answer Wrong Game Over ! \nThen the button to restart",
+                            "align": "center",
+                            "fontFamily": "BebasNeue-Regular",
+                            "fontSize": "57px"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "347df9bb-27e5-4dbb-b113-d8bee733a637",
+            "label": "Interduction_panel",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "055e6cd3-db03-4217-b1ad-38dc547b0992",
+                    "label": "interduction_blackScreen",
+                    "x": 640,
+                    "y": 360,
+                    "scaleX": 10,
+                    "scaleY": 6,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Text",
+                    "id": "b5f108a0-1f1f-43d9-b558-5b36722d6012",
+                    "label": "interdutcion_discription",
+                    "scope": "PUBLIC",
+                    "x": 640,
+                    "y": 360,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Finally dung a Curry—'cause market people nuh tek threat,\nMek him come a town if him bad—see weh him ago get!\n",
+                    "resolution": 3,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "40px"
+                },
+                {
+                    "type": "Text",
+                    "id": "b76f6ba6-03da-4e4e-8010-e2c9351ba97a",
+                    "label": "Interduction_Title",
+                    "scope": "PUBLIC",
+                    "x": 640,
+                    "y": 227,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Coronation Market",
+                    "resolution": 3,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "50px"
                 }
             ]
         }

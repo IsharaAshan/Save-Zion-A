@@ -113,9 +113,7 @@
                                     "label": "toggle_button_background_3",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -169,9 +167,7 @@
                                     "label": "toggle_button_background_2",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -226,9 +222,7 @@
                                     "label": "toggle_button_background_1",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -283,9 +277,7 @@
                                     "label": "toggle_button_background",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -408,8 +400,71 @@
                                 "key": "RestartButton"
                             },
                             "y": 49
+                        },
+                        {
+                            "type": "Text",
+                            "id": "cf5b93bd-3de5-40b2-857d-161fb13fe7be",
+                            "label": "game_over msg",
+                            "scope": "PUBLIC",
+                            "y": 200,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Answer Wrong Game Over ! \nThen the button to restart",
+                            "align": "center",
+                            "fontFamily": "BebasNeue-Regular",
+                            "fontSize": "57px"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "2756e636-30a4-4000-8bff-005760692e64",
+            "label": "Interduction_panel",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "1379cac9-2699-4b4a-8a0b-20c2caebd66a",
+                    "label": "interduction_blackScreen",
+                    "x": 640,
+                    "y": 360,
+                    "scaleX": 10,
+                    "scaleY": 6,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Text",
+                    "id": "e40e074d-8a4c-4c12-8032-cf2e90faf3cc",
+                    "label": "interdutcion_discription",
+                    "scope": "PUBLIC",
+                    "x": 640,
+                    "y": 360,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "His feet ran where they were familiar and so ended down by Back Road,\nHe hoped he would be safe because the girls there know the road code.",
+                    "resolution": 3,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "40px"
+                },
+                {
+                    "type": "Text",
+                    "id": "0f62da43-8f6f-4a11-8555-acf9bece5d94",
+                    "label": "Interduction_Title",
+                    "scope": "PUBLIC",
+                    "x": 640,
+                    "y": 227,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Back Road",
+                    "resolution": 3,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "50px"
                 }
             ]
         }

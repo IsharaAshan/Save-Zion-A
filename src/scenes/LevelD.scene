@@ -113,9 +113,7 @@
                                     "label": "toggle_button_background_3",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -170,9 +168,7 @@
                                     "label": "toggle_button_background_2",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -226,9 +222,7 @@
                                     "label": "toggle_button_background_1",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -283,9 +277,7 @@
                                     "label": "toggle_button_background",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -408,8 +400,72 @@
                                 "key": "RestartButton"
                             },
                             "y": 49
+                        },
+                        {
+                            "type": "Text",
+                            "id": "47b8f949-4b84-4d35-be21-f139cf2a5ab6",
+                            "label": "game_over msg",
+                            "scope": "PUBLIC",
+                            "y": 200,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Answer Wrong Game Over ! \nThen the button to restart",
+                            "align": "center",
+                            "fontFamily": "BebasNeue-Regular",
+                            "fontSize": "57px"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "5d878060-fac5-4983-bbeb-024c28e45c0c",
+            "label": "Interduction_panel",
+            "scope": "PUBLIC",
+            "x": -0.0000015544082287988203,
+            "y": 3.0083398883107293e-7,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "0c3becda-b71c-4b46-8618-7c0dfb0ed465",
+                    "label": "interduction_blackScreen",
+                    "x": 640,
+                    "y": 360,
+                    "scaleX": 10,
+                    "scaleY": 6,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Text",
+                    "id": "79fa4d64-e042-4e7f-8495-b49518a4a02f",
+                    "label": "interdutcion_discription",
+                    "scope": "PUBLIC",
+                    "x": 640,
+                    "y": 360,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "In Half-Way Tree he only stopped a minute, to get a hot patty,\nBut Babylon swooped down off the clock—and grabbed him by the ba...!",
+                    "resolution": 3,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "40px"
+                },
+                {
+                    "type": "Text",
+                    "id": "d27a0806-311f-4e3c-b076-c825af17b7b9",
+                    "label": "Interduction_Title",
+                    "scope": "PUBLIC",
+                    "x": 640,
+                    "y": 227,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Half-Way Tree",
+                    "resolution": 3,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "50px"
                 }
             ]
         }

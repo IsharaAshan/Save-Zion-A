@@ -3,6 +3,7 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
+import TransitionManager from '../utils/TransitionManager.js';
 /* END-USER-IMPORTS */
 
 export default class LevelB extends Phaser.Scene {
@@ -58,8 +59,6 @@ export default class LevelB extends Phaser.Scene {
 
 		// toggle_button_background_3
 		const toggle_button_background_3 = this.add.image(0, 0, "toggle_button_background");
-		toggle_button_background_3.scaleX = 0.1;
-		toggle_button_background_3.scaleY = 0.1;
 		toggle_button_d.add(toggle_button_background_3);
 
 		// toggle_button_front_3
@@ -87,8 +86,6 @@ export default class LevelB extends Phaser.Scene {
 
 		// toggle_button_background_2
 		const toggle_button_background_2 = this.add.image(0, 0, "toggle_button_background");
-		toggle_button_background_2.scaleX = 0.1;
-		toggle_button_background_2.scaleY = 0.1;
 		toggle_button_c.add(toggle_button_background_2);
 
 		// toggle_button_front_2
@@ -116,8 +113,6 @@ export default class LevelB extends Phaser.Scene {
 
 		// toggle_button_background_1
 		const toggle_button_background_1 = this.add.image(0, 0, "toggle_button_background");
-		toggle_button_background_1.scaleX = 0.1;
-		toggle_button_background_1.scaleY = 0.1;
 		toggle_button_b.add(toggle_button_background_1);
 
 		// toggle_button_front_1
@@ -145,8 +140,6 @@ export default class LevelB extends Phaser.Scene {
 
 		// toggle_button_background
 		const toggle_button_background = this.add.image(0, 0, "toggle_button_background");
-		toggle_button_background.scaleX = 0.1;
-		toggle_button_background.scaleY = 0.1;
 		toggle_button_a.add(toggle_button_background);
 
 		// toggle_button_front
@@ -215,6 +208,39 @@ export default class LevelB extends Phaser.Scene {
 		restart_button.setInteractive(new Phaser.Geom.Rectangle(0, 0, 140, 42), Phaser.Geom.Rectangle.Contains);
 		game_over_pop_up.add(restart_button);
 
+		// game_over msg
+		const game_over_msg = this.add.text(0, 200, "", {});
+		game_over_msg.setOrigin(0.5, 0.5);
+		game_over_msg.text = "Answer Wrong Game Over ! \nThen the button to restart";
+		game_over_msg.setStyle({ "align": "center", "fontFamily": "BebasNeue-Regular", "fontSize": "57px" });
+		game_over_pop_up.add(game_over_msg);
+
+		// Interduction_panel
+		const interduction_panel = this.add.container(0, 0);
+		interduction_panel.visible = false;
+
+		// interduction_blackScreen
+		const interduction_blackScreen = this.add.rectangle(640, 360, 128, 128);
+		interduction_blackScreen.scaleX = 10;
+		interduction_blackScreen.scaleY = 6;
+		interduction_blackScreen.isFilled = true;
+		interduction_blackScreen.fillColor = 0;
+		interduction_panel.add(interduction_blackScreen);
+
+		// interdutcion_discription
+		const interdutcion_discription = this.add.text(640, 360, "", {});
+		interdutcion_discription.setOrigin(0.5, 0.5);
+		interdutcion_discription.text = "His next thought was that Blue Mountain must be a safe bet,\nBut he slipped on a rock cause all him foot bottom did a sweat!";
+		interdutcion_discription.setStyle({ "fontFamily": "BebasNeue-Regular", "fontSize": "40px", "resolution": 3 });
+		interduction_panel.add(interdutcion_discription);
+
+		// Interduction_Title
+		const interduction_Title = this.add.text(640, 227, "", {});
+		interduction_Title.setOrigin(0.5, 0.5);
+		interduction_Title.text = "Blue Mountain";
+		interduction_Title.setStyle({ "fontFamily": "BebasNeue-Regular", "fontSize": "50px", "resolution": 3 });
+		interduction_panel.add(interduction_Title);
+
 		this.clip_a = clip_a;
 		this.clip_b = clip_b;
 		this.clip_c = clip_c;
@@ -226,7 +252,11 @@ export default class LevelB extends Phaser.Scene {
 		this.toggle_button_a = toggle_button_a;
 		this.quiz_panel = quiz_panel;
 		this.restart_button = restart_button;
+		this.game_over_msg = game_over_msg;
 		this.game_over_panel = game_over_panel;
+		this.interdutcion_discription = interdutcion_discription;
+		this.interduction_Title = interduction_Title;
+		this.interduction_panel = interduction_panel;
 
 		this.events.emit("scene-awake");
 	}
@@ -253,8 +283,16 @@ export default class LevelB extends Phaser.Scene {
 	quiz_panel;
 	/** @type {Phaser.GameObjects.Image} */
 	restart_button;
+	/** @type {Phaser.GameObjects.Text} */
+	game_over_msg;
 	/** @type {Phaser.GameObjects.Container} */
 	game_over_panel;
+	/** @type {Phaser.GameObjects.Text} */
+	interdutcion_discription;
+	/** @type {Phaser.GameObjects.Text} */
+	interduction_Title;
+	/** @type {Phaser.GameObjects.Container} */
+	interduction_panel;
 
 	/* START-USER-CODE */
 
@@ -263,16 +301,48 @@ export default class LevelB extends Phaser.Scene {
 	create() {
 		this.editorCreate();
 
+		// Store reference to game_over_pop_up
+		this.game_over_pop_up = this.game_over_panel.getAt(1);
+
+		// Initially set all videos to be invisible
+		this.clip_a.visible = false;
+		this.clip_b.visible = false;
+		this.clip_c.visible = false;
+		this.clip_d.visible = false;
+		this.restart_video.visible = false;
+
 		// Initially set the quiz_panel to scale 0
 		this.quiz_panel.setScale(0);
 
-		// Get sound from asset pack using string key
-		this.miSound = this.sound.add("mi_sound");
-		this.miSound.setLoop(true);
-		this.miSound.play();
+		// Initially set game over pop-up to scale 0
+		this.game_over_pop_up.setScale(0);
 
-		// Load the flat_bridge sound using string key reference
-		this.flatBridgeSound = this.sound.add("blue_mountain");
+		// Make introduction panel visible
+		this.interduction_panel.visible = true;
+
+		// Load and play introduction sound
+		this.introductionSound = this.sound.add("level_b_interduction");
+		this.introSoundPlaying = false;
+		try {
+			this.introductionSound.play();
+			this.introSoundPlaying = true;
+		} catch (error) {
+			console.error("Failed to play introduction sound:", error);
+			// Fallback to miSound if introduction sound fails
+			this.miSound = this.sound.add("mi_sound");
+			this.miSound.setLoop(true);
+			this.miSound.play();
+		}
+
+		// Hide the title and description initially to prepare for typing animation
+		this.interduction_Title.setText('');
+		this.interdutcion_discription.setText('');
+
+		// If intro sound didn't play, we already loaded miSound as fallback
+		// Otherwise, load it but don't play it yet
+		if (!this.miSound) {
+			this.miSound = this.sound.add("mi_sound");
+		}
 
 		// Load button click sound
 		this.buttonClickSound = this.sound.add("button_click");
@@ -283,48 +353,131 @@ export default class LevelB extends Phaser.Scene {
 		// Load toggle click sound
 		this.toggleClickSound = this.sound.add("toggle_click");
 
-		// Stop the first sound after 5 seconds and play flat_bridge
-		this.time.delayedCall(5000, () => {
-			this.miSound.stop();
-			// Play flat_bridge sound after mi_sound stops
-			this.flatBridgeSound.play();
+		 // Add typing animation for title
+		this.typeText(this.interduction_Title, "Blue Mountain", 100);
 
-			this.time.delayedCall(5000, () => {
-				this.quiz_panel.visible = true;
-
-				// Play the pop up sound when the panel becomes active
-				this.popUpSound.play();
-
-				// Add pop animation to quiz_panel
-				this.tweens.add({
-					targets: this.quiz_panel,
-					scaleX: 1,
-					scaleY: 1,
-					duration: 500,
-					ease: 'Back.out', // Gives a nice bounce effect
-					onComplete: () => {
-						 // Setup toggle buttons after quiz panel is visible
-						this.setupToggleButtons();
-					}
-				});
-			});
+		// Add typing animation for description after title is complete
+		this.time.delayedCall(1200, () => {
+			this.typeText(
+				this.interdutcion_discription, 
+				"His next thought was that Blue Mountain must be a safe bet,\nBut he slipped on a rock—'cause all him foot bottom did a sweat!", 
+				30
+			);
 		});
 
-		// Start playing the first clip
-		this.clip_a.play();
+		// After 8 seconds, hide introduction panel and start the game sequence
+		this.time.delayedCall(8000, () => {
+			// Stop the introduction sound
+			if (this.introductionSound) {
+				this.introductionSound.stop();
+			}
 
-		// After 5 seconds, switch to the second clip
-		this.time.delayedCall(5000, () => {
-			this.clip_a.visible = false;
-			this.clip_a.stop();
+			// Fade out the introduction panel
+			this.tweens.add({
+				targets: this.interduction_panel,
+				alpha: 0,
+				duration: 800,
+				onComplete: () => {
+					// Completely deactivate the introduction panel
+					this.interduction_panel.visible = false;
+					this.interduction_panel.alpha = 1; // reset alpha for future use
 
-			this.clip_b.visible = true;
-			this.clip_b.play();
-			this.clip_b.setLoop(true);
+					// Cancel any remaining typing animations for intro panel
+					this.time.removeAllEvents();
+					this.interduction_Title.setText("Blue Mountain"); // Ensure text is fully displayed
+					this.interdutcion_discription.setText("His next thought was that Blue Mountain must be a safe bet,\nBut he slipped on a rock—'cause all him foot bottom did a sweat!");
+
+					// Remove any interactive elements from the panel
+					this.interduction_panel.removeInteractive();
+
+					// Disable the panel completely
+					this.interduction_panel.active = false;
+
+					// Handle audio transitions based on what's currently playing
+					if (this.introSoundPlaying) {
+						// If intro sound was playing, now play miSound
+						this.miSound.play();
+
+						// After 5 seconds, transition to flat bridge sound
+						this.time.delayedCall(5000, () => {
+							this.miSound.stop();
+							this.sound.play("blue_mountain");
+						});
+					} else {
+						// If miSound was already playing as fallback, just schedule the transition
+						this.time.delayedCall(5000, () => {
+							this.miSound.stop();
+							this.sound.play("blue_mountain");
+						});
+					}
+
+					// Start the first video
+					this.clip_a.visible = true;
+					this.clip_a.play();
+
+					// Listen for the first video's completion instead of using a delay
+					this.clip_a.once('complete', () => {
+						this.clip_a.visible = false;
+						this.clip_a.stop();
+
+						this.clip_b.visible = true;
+						this.clip_b.play();
+						this.clip_b.setLoop(true);
+
+						// Only delay for the quiz panel after clip_b has been visible for a while
+						this.time.delayedCall(5000, () => {
+							this.quiz_panel.visible = true;
+
+							// Play the pop up sound when the panel becomes active
+							this.popUpSound.play();
+
+							// Add pop animation to quiz_panel
+							this.tweens.add({
+								targets: this.quiz_panel,
+								scaleX: 1,
+								scaleY: 1,
+								duration: 500,
+								ease: 'Back.out', // Gives a nice bounce effect
+								onComplete: () => {
+									// Setup toggle buttons after quiz panel is visible
+									this.setupToggleButtons();
+								}
+							});
+						});
+					});
+				}
+			});
 		});
 
 		// Initialize the toggle buttons
 		this.setupToggleButtons();
+	}
+
+	/**
+	 * Creates a typewriter effect for text
+	 * @param {Phaser.GameObjects.Text} textObject - The text object to animate
+	 * @param {string} finalText - The final text to display
+	 * @param {number} speed - Speed of typing in ms per character
+	 */
+	typeText(textObject, finalText, speed = 50) {
+		const length = finalText.length;
+		let i = 0;
+
+		// Store original text for later
+		const originalText = finalText;
+
+		// Clear text initially
+		textObject.setText('');
+
+		// Create typing interval
+		this.time.addEvent({
+			callback: () => {
+				textObject.setText(originalText.substring(0, i));
+				i++;
+			},
+			repeat: length,
+			delay: speed
+		});
 	}
 
 	/**
@@ -432,57 +585,98 @@ export default class LevelB extends Phaser.Scene {
 
 					// Add 5-second delay before showing the game over panel
 					this.time.delayedCall(5000, () => {
-						// Show game over panel after delay
+						// Show game over panel with scale animation
 						this.game_over_panel.visible = true;
+						this.game_over_panel.alpha = 1;
 
-						// Play the pop up sound when the panel becomes active
+						// Set initial scale to 0
+						this.game_over_pop_up.setScale(0);
+
+						// Play the pop up sound
 						this.popUpSound.play();
 
-						// Add event listener to restart button if needed
-						this.restart_button.on('pointerdown', () => {
-							// Play button click sound
-							this.buttonClickSound.play();
+						// Make sure game over message is empty initially
+						this.game_over_msg.setText('');
 
-							// Animate button click
-							this.tweens.add({
-								targets: this.restart_button,
-								scaleX: 0.9,
-								scaleY: 0.9,
-								duration: 100,
-								yoyo: true,
-								ease: 'Power1',
-								onComplete: () => {
-									// Cancel all pending timers to prevent scheduled sounds/videos
-									this.time.removeAllEvents();
-									
-									// Stop all sounds first
-									this.stopAllSounds();
-									
-									// Hide game over panel
-									this.game_over_panel.visible = false;
+						// Hide restart button initially
+						this.restart_button.visible = false;
 
-									// Stop any currently playing videos
-									this.stopAllVideos();
+						// Animate the game over pop-up
+						this.tweens.add({
+							targets: this.game_over_pop_up,
+							scaleX: 1,
+							scaleY: 1,
+							duration: 500,
+							ease: 'Back.out',
+							onComplete: () => {
+								// Start typing animation for game over message
+								this.typeText(
+									this.game_over_msg, 
+									"Answer Wrong Game Over ! \nThen the button to restart",
+									40
+								);
 
-									// Show and play restart video
-									this.restart_video.visible = true;
-									this.restart_video.play();
+								// Show restart button after message is complete
+								this.time.delayedCall(2500, () => {
+									// Fade in restart button
+									this.restart_button.visible = true;
+									this.restart_button.alpha = 0;
 
-									// Add 8-second delay before restarting
-									this.time.delayedCall(8000, () => {
-										// Stop everything again before scene restart
-										this.stopAllVideos();
-										this.stopAllSounds();
-										this.time.removeAllEvents();
-										
-										// Force-remove all event listeners to prevent memory leaks
-										this.input.off('pointerdown');
-										
-										// Use scene.start instead of scene.restart for a cleaner restart
-										this.scene.start("LevelB");
+									this.tweens.add({
+										targets: this.restart_button,
+										alpha: 1,
+										duration: 300,
+										ease: 'Linear'
 									});
-								}
-							});
+
+									// Add event listener to restart button if needed
+									this.restart_button.on('pointerdown', () => {
+										// Play button click sound
+										this.buttonClickSound.play();
+
+										// Animate button click
+										this.tweens.add({
+											targets: this.restart_button,
+											scaleX: 0.9,
+											scaleY: 0.9,
+											duration: 100,
+											yoyo: true,
+											ease: 'Power1',
+											onComplete: () => {
+												// Cancel all pending timers to prevent scheduled sounds/videos
+												this.time.removeAllEvents();
+
+												// Stop all sounds first
+												this.stopAllSounds();
+
+												// Hide game over panel
+												this.game_over_panel.visible = false;
+
+												// Stop any currently playing videos
+												this.stopAllVideos();
+
+												// Show and play restart video
+												this.restart_video.visible = true;
+												this.restart_video.play();
+
+												// Add 8-second delay before restarting
+												this.time.delayedCall(8000, () => {
+													// Stop everything again before scene restart
+													this.stopAllVideos();
+													this.stopAllSounds();
+													this.time.removeAllEvents();
+
+													// Force-remove all event listeners to prevent memory leaks
+													this.input.off('pointerdown');
+
+													// Use scene.start instead of scene.restart for a cleaner restart
+													this.scene.start("LevelB");
+												});
+											}
+										});
+									});
+								});
+							}
 						});
 					});
 				}
@@ -501,18 +695,17 @@ export default class LevelB extends Phaser.Scene {
 		if (this.clip_d) this.clip_d.stop();
 		if (this.restart_video) this.restart_video.stop();
 	}
-	
+
 	/**
 	 * Stop all sound objects to prevent audio overlap issues
 	 */
 	stopAllSounds() {
 		// Stop all sound objects
 		if (this.miSound) this.miSound.stop();
-		if (this.flatBridgeSound) this.flatBridgeSound.stop();
 		if (this.buttonClickSound) this.buttonClickSound.stop();
 		if (this.popUpSound) this.popUpSound.stop();
 		if (this.toggleClickSound) this.toggleClickSound.stop();
-		
+
 		// Additional safety to clear any other sounds
 		this.sound.stopAll();
 	}

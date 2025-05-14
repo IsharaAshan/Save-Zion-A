@@ -113,9 +113,7 @@
                                     "label": "toggle_button_background_3",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -169,9 +167,7 @@
                                     "label": "toggle_button_background_2",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -226,9 +222,7 @@
                                     "label": "toggle_button_background_1",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -282,9 +276,7 @@
                                     "label": "toggle_button_background",
                                     "texture": {
                                         "key": "toggle_button_background"
-                                    },
-                                    "scaleX": 0.1,
-                                    "scaleY": 0.1
+                                    }
                                 },
                                 {
                                     "type": "Image",
@@ -355,8 +347,9 @@
                     "type": "Container",
                     "id": "377cb9a5-fab3-4197-aeb8-d377b576273b",
                     "label": "game_over_pop_up",
+                    "scope": "PUBLIC",
                     "x": 640,
-                    "y": 360,
+                    "y": 299,
                     "list": [
                         {
                             "type": "Rectangle",
@@ -406,8 +399,71 @@
                                 "key": "RestartButton"
                             },
                             "y": 49
+                        },
+                        {
+                            "type": "Text",
+                            "id": "ebb42a43-a606-41f5-84c5-f9e17d0ff95e",
+                            "label": "game_over msg",
+                            "scope": "PUBLIC",
+                            "y": 200,
+                            "originX": 0.5,
+                            "originY": 0.5,
+                            "text": "Answer Wrong Game Over ! \nThen the button to restart",
+                            "align": "center",
+                            "fontFamily": "BebasNeue-Regular",
+                            "fontSize": "57px"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "7455131a-bd18-4f5a-83f7-2d72149a3d63",
+            "label": "Interduction_panel",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "761270f2-f4ba-4728-b5da-3fc13dc14d62",
+                    "label": "interduction_blackScreen",
+                    "x": 640,
+                    "y": 360,
+                    "scaleX": 10,
+                    "scaleY": 6,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Text",
+                    "id": "19756b9c-3a4d-467a-bb20-8c5d80763abd",
+                    "label": "interdutcion_discription",
+                    "scope": "PUBLIC",
+                    "x": 640,
+                    "y": 360,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "When Zion saw Babylon, he tried to escape to St. Ann,\nBut the duppies by Flat Bridge, they had another plan",
+                    "resolution": 3,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "40px"
+                },
+                {
+                    "type": "Text",
+                    "id": "369dd860-9d9f-47a5-97a1-47bd6241708b",
+                    "label": "Interduction_Title",
+                    "scope": "PUBLIC",
+                    "x": 640,
+                    "y": 227,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Flat Bridge",
+                    "resolution": 3,
+                    "fontFamily": "BebasNeue-Regular",
+                    "fontSize": "50px"
                 }
             ]
         }

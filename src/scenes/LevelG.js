@@ -3,6 +3,7 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
+import TransitionManager from '../utils/TransitionManager.js';
 /* END-USER-IMPORTS */
 
 export default class LevelG extends Phaser.Scene {
@@ -57,8 +58,6 @@ export default class LevelG extends Phaser.Scene {
 
 		// toggle_button_background_3
 		const toggle_button_background_3 = this.add.image(0, 0, "toggle_button_background");
-		toggle_button_background_3.scaleX = 0.1;
-		toggle_button_background_3.scaleY = 0.1;
 		toggle_button_d.add(toggle_button_background_3);
 
 		// toggle_button_front_3
@@ -86,8 +85,6 @@ export default class LevelG extends Phaser.Scene {
 
 		// toggle_button_background_2
 		const toggle_button_background_2 = this.add.image(0, 0, "toggle_button_background");
-		toggle_button_background_2.scaleX = 0.1;
-		toggle_button_background_2.scaleY = 0.1;
 		toggle_button_c.add(toggle_button_background_2);
 
 		// toggle_button_front_2
@@ -115,8 +112,6 @@ export default class LevelG extends Phaser.Scene {
 
 		// toggle_button_background_1
 		const toggle_button_background_1 = this.add.image(0, 0, "toggle_button_background");
-		toggle_button_background_1.scaleX = 0.1;
-		toggle_button_background_1.scaleY = 0.1;
 		toggle_button_b.add(toggle_button_background_1);
 
 		// toggle_button_front_1
@@ -144,8 +139,6 @@ export default class LevelG extends Phaser.Scene {
 
 		// toggle_button_background
 		const toggle_button_background = this.add.image(0, 0, "toggle_button_background");
-		toggle_button_background.scaleX = 0.1;
-		toggle_button_background.scaleY = 0.1;
 		toggle_button_a.add(toggle_button_background);
 
 		// toggle_button_front
@@ -214,6 +207,39 @@ export default class LevelG extends Phaser.Scene {
 		restart_button.setInteractive(new Phaser.Geom.Rectangle(0, 0, 140, 42), Phaser.Geom.Rectangle.Contains);
 		game_over_pop_up.add(restart_button);
 
+		// game_over msg
+		const game_over_msg = this.add.text(0, 200, "", {});
+		game_over_msg.setOrigin(0.5, 0.5);
+		game_over_msg.text = "Answer Wrong Game Over ! \nThen the button to restart";
+		game_over_msg.setStyle({ "align": "center", "fontFamily": "BebasNeue-Regular", "fontSize": "57px" });
+		game_over_pop_up.add(game_over_msg);
+
+		// Interduction_panel
+		const interduction_panel = this.add.container(0, 0);
+		interduction_panel.visible = false;
+
+		// interduction_blackScreen
+		const interduction_blackScreen = this.add.rectangle(640, 360, 128, 128);
+		interduction_blackScreen.scaleX = 10;
+		interduction_blackScreen.scaleY = 6;
+		interduction_blackScreen.isFilled = true;
+		interduction_blackScreen.fillColor = 0;
+		interduction_panel.add(interduction_blackScreen);
+
+		// interdutcion_discription
+		const interdutcion_discription = this.add.text(640, 360, "", {});
+		interdutcion_discription.setOrigin(0.5, 0.5);
+		interdutcion_discription.text = "Finally dung a Curry—'cause market people nuh tek threat,\nMek him come a town if him bad—see weh him ago get!\n";
+		interdutcion_discription.setStyle({ "fontFamily": "BebasNeue-Regular", "fontSize": "40px", "resolution": 3 });
+		interduction_panel.add(interdutcion_discription);
+
+		// Interduction_Title
+		const interduction_Title = this.add.text(640, 227, "", {});
+		interduction_Title.setOrigin(0.5, 0.5);
+		interduction_Title.text = "Coronation Market";
+		interduction_Title.setStyle({ "fontFamily": "BebasNeue-Regular", "fontSize": "50px", "resolution": 3 });
+		interduction_panel.add(interduction_Title);
+
 		this.clip_a = clip_a;
 		this.clip_b = clip_b;
 		this.clip_c = clip_c;
@@ -225,7 +251,11 @@ export default class LevelG extends Phaser.Scene {
 		this.toggle_button_a = toggle_button_a;
 		this.quiz_panel = quiz_panel;
 		this.restart_button = restart_button;
+		this.game_over_msg = game_over_msg;
 		this.game_over_panel = game_over_panel;
+		this.interdutcion_discription = interdutcion_discription;
+		this.interduction_Title = interduction_Title;
+		this.interduction_panel = interduction_panel;
 
 		this.events.emit("scene-awake");
 	}
@@ -252,8 +282,16 @@ export default class LevelG extends Phaser.Scene {
 	quiz_panel;
 	/** @type {Phaser.GameObjects.Image} */
 	restart_button;
+	/** @type {Phaser.GameObjects.Text} */
+	game_over_msg;
 	/** @type {Phaser.GameObjects.Container} */
 	game_over_panel;
+	/** @type {Phaser.GameObjects.Text} */
+	interdutcion_discription;
+	/** @type {Phaser.GameObjects.Text} */
+	interduction_Title;
+	/** @type {Phaser.GameObjects.Container} */
+	interduction_panel;
 
 	/* START-USER-CODE */
 
@@ -262,68 +300,167 @@ export default class LevelG extends Phaser.Scene {
 	create() {
 		this.editorCreate();
 
+		 // Store reference to game_over_pop_up
+		this.game_over_pop_up = this.game_over_panel.getAt(1);
+
+		// Initially set all videos to be invisible except clip_a
+		this.clip_b.visible = false;
+		this.clip_c.visible = false;
+		this.clip_d.visible = false;
+		this.restart_video.visible = false;
+
 		// Initially set the quiz_panel to scale 0
 		this.quiz_panel.setScale(0);
 
-		// Get sound from asset pack using string key
-		this.miSound = this.sound.add("mi_sound");
-		this.miSound.setLoop(true);
-		this.miSound.play();
+		// Initially set game over pop-up to scale 0
+		this.game_over_pop_up.setScale(0);
 
-		// Load the flat_bridge sound using string key reference
+		// Create transition manager for smooth scene transitions
+		this.transitionManager = new TransitionManager(this);
+
+		// Make introduction panel visible initially
+		this.interduction_panel.visible = true;
+
+		// Update title and description - KEEPING CORONATION MARKET TEXT
+		this.interduction_Title.setText('');
+		this.interdutcion_discription.setText('');
+
+		// Load and play introduction sound
+		this.introductionSound = this.sound.add("level_g_interduction");
+		this.introSoundPlaying = false;
+		try {
+			this.introductionSound.play();
+			this.introSoundPlaying = true;
+		} catch (error) {
+			console.error("Failed to play introduction sound:", error);
+			// Fallback to miSound if introduction sound fails
+			this.miSound = this.sound.add("mi_sound");
+			this.miSound.setLoop(true);
+			this.miSound.play();
+		}
+
+		// Initialize sound effects
+		if (!this.miSound) {
+			this.miSound = this.sound.add("mi_sound");
+			this.miSound.setLoop(true);
+		}
 		this.flatBridgeSound = this.sound.add("back _road");
-
-		// Load button click sound
 		this.buttonClickSound = this.sound.add("button_click");
-
-		// Load pop up sound
 		this.popUpSound = this.sound.add("pop_up");
-
-		// Load toggle click sound
 		this.toggleClickSound = this.sound.add("toggle_click");
 
-		// Stop the first sound after 5 seconds and play flat_bridge
-		this.time.delayedCall(5000, () => {
-			this.miSound.stop();
-			// Play flat_bridge sound after mi_sound stops
-			this.flatBridgeSound.play();
+		// Add typing animation for title - keeping original "Coronation Market" text
+		this.typeText(this.interduction_Title, "Coronation Market", 100);
 
-			this.time.delayedCall(5000, () => {
-				this.quiz_panel.visible = true;
-
-				// Play the pop up sound when the panel becomes active
-				this.popUpSound.play();
-
-				// Add pop animation to quiz_panel
-				this.tweens.add({
-					targets: this.quiz_panel,
-					scaleX: 1,
-					scaleY: 1,
-					duration: 500,
-					ease: 'Back.out', // Gives a nice bounce effect
-					onComplete: () => {
-						 // Setup toggle buttons after quiz panel is visible
-						this.setupToggleButtons();
-					}
-				});
-			});
+		// Add typing animation for description after title is complete - keeping original text
+		this.time.delayedCall(1200, () => {
+			this.typeText(
+				this.interdutcion_discription, 
+				"Finally dung a Curry—'cause market people nuh tek threat,\nMek him come a town if him bad—see weh him ago get!",
+				30
+			);
 		});
 
-		// Start playing the first clip
-		this.clip_a.play();
+		// After 8 seconds, hide introduction panel and start the game sequence
+		this.time.delayedCall(9000, () => {
+			// Stop the introduction sound
+			if (this.introductionSound) {
+				this.introductionSound.stop();
+			}
 
-		// After 5 seconds, switch to the second clip
-		this.time.delayedCall(5000, () => {
-			this.clip_a.visible = false;
-			this.clip_a.stop();
+			// Fade out the introduction panel
+			this.tweens.add({
+				targets: this.interduction_panel,
+				alpha: 0,
+				duration: 900,
+				onComplete: () => {
+					// Completely deactivate the introduction panel
+					this.interduction_panel.visible = false;
+					this.interduction_panel.alpha = 1; // reset alpha for future use
 
-			this.clip_b.visible = true;
-			this.clip_b.play();
-			this.clip_b.setLoop(true);
+					// Cancel any remaining typing animations for intro panel
+					this.time.removeAllEvents();
+					this.interduction_Title.setText("Coronation Market"); // Ensure text is fully displayed
+					this.interdutcion_discription.setText("Finally dung a Curry—'cause market people nuh tek threat,\nMek him come a town if him bad—see weh him ago get!");
+
+					// Start playing miSound if intro sound was playing or as a fallback
+					if (this.introSoundPlaying || !this.miSound.isPlaying) {
+						this.miSound.play();
+					}
+
+					// Start the first video
+					this.clip_a.visible = true;
+					this.clip_a.play();
+
+					// Listen for the first video's completion instead of using a delay
+					this.clip_a.once('complete', () => {
+						this.clip_a.visible = false;
+						this.clip_a.stop();
+
+						// Start the second video with looping
+						this.clip_b.visible = true;
+						this.clip_b.play();
+						this.clip_b.setLoop(true);
+
+						// Stop miSound after 1 second and play flatBridge sound
+						this.time.delayedCall(1000, () => {
+							this.miSound.stop();
+							this.flatBridgeSound.play();
+
+							// Show quiz panel after flatBridge sound has played for a bit
+							this.time.delayedCall(5000, () => {
+								this.quiz_panel.visible = true;
+
+								// Play the pop up sound when the panel becomes active
+								this.popUpSound.play();
+
+								// Add pop animation to quiz_panel
+								this.tweens.add({
+									targets: this.quiz_panel,
+									scaleX: 1,
+									scaleY: 1,
+									duration: 500,
+									ease: 'Back.out', // Gives a nice bounce effect
+									onComplete: () => {
+										// Setup toggle buttons after quiz panel is visible
+										this.setupToggleButtons();
+									}
+								});
+							});
+						});
+					});
+				}
+			});
 		});
 
 		// Initialize the toggle buttons
 		this.setupToggleButtons();
+	}
+
+	/**
+	 * Creates a typewriter effect for text
+	 * @param {Phaser.GameObjects.Text} textObject - The text object to animate
+	 * @param {string} finalText - The final text to display
+	 * @param {number} speed - Speed of typing in ms per character
+	 */
+	typeText(textObject, finalText, speed = 50) {
+		// Store original text for later
+		const originalText = finalText;
+		const length = finalText.length;
+		let i = 0;
+
+		// Clear text initially
+		textObject.setText('');
+
+		// Create typing interval
+		this.time.addEvent({
+			callback: () => {
+				textObject.setText(originalText.substring(0, i));
+				i++;
+			},
+			repeat: length,
+			delay: speed
+		});
 	}
 
 	/**
@@ -384,12 +521,10 @@ export default class LevelG extends Phaser.Scene {
 					this.quiz_panel.visible = false;
 
 					// Stop any currently playing videos
-					this.clip_a.stop();
-					this.clip_a.visible = false;
-					this.clip_b.stop();
+					if (this.clip_b.isPlaying()) {
+						this.clip_b.stop();
+					}
 					this.clip_b.visible = false;
-					this.clip_c.stop();
-					this.clip_c.visible = false;
 
 					// Show and play clip_d (correct answer clip)
 					this.clip_d.visible = true;
@@ -401,8 +536,8 @@ export default class LevelG extends Phaser.Scene {
 						this.stopAllVideos();
 						this.stopAllSounds();
 
-						// Load next level scene
-						this.scene.start("LevelH");
+						 // Use transition manager for smooth transition
+						this.transitionManager.fadeToScene("WinScene", 800);
 					});
 				}
 			});
@@ -421,9 +556,9 @@ export default class LevelG extends Phaser.Scene {
 					this.quiz_panel.visible = false;
 
 					// Stop any currently playing videos
-					this.clip_a.stop();
+					if (this.clip_a.isPlaying()) this.clip_a.stop();
 					this.clip_a.visible = false;
-					this.clip_b.stop();
+					if (this.clip_b.isPlaying()) this.clip_b.stop();
 					this.clip_b.visible = false;
 
 					// Show and play clip_c (wrong answer clip)
@@ -432,57 +567,98 @@ export default class LevelG extends Phaser.Scene {
 
 					// Add 5-second delay before showing the game over panel
 					this.time.delayedCall(5000, () => {
-						// Show game over panel after delay
+						// Show game over panel with scale animation
 						this.game_over_panel.visible = true;
+						this.game_over_panel.alpha = 1;
 
-						// Play the pop up sound when the panel becomes active
+						// Set initial scale to 0
+						this.game_over_pop_up.setScale(0);
+
+						// Play the pop up sound
 						this.popUpSound.play();
 
-						// Add event listener to restart button if needed
-						this.restart_button.on('pointerdown', () => {
-							// Play button click sound
-							this.buttonClickSound.play();
+						// Make sure game over message is empty initially
+						this.game_over_msg.setText('');
 
-							// Animate button click
-							this.tweens.add({
-								targets: this.restart_button,
-								scaleX: 0.9,
-								scaleY: 0.9,
-								duration: 100,
-								yoyo: true,
-								ease: 'Power1',
-								onComplete: () => {
-									 // Cancel all pending timers to prevent scheduled sounds/videos
-									this.time.removeAllEvents();
+						// Hide restart button initially
+						this.restart_button.visible = false;
 
-									// Stop all sounds immediately
-									this.stopAllSounds();
+						// Animate the game over pop-up
+						this.tweens.add({
+							targets: this.game_over_pop_up,
+							scaleX: 1,
+							scaleY: 1,
+							duration: 500,
+							ease: 'Back.out',
+							onComplete: () => {
+								// Start typing animation for game over message
+								this.typeText(
+									this.game_over_msg, 
+									"Answer Wrong Game Over ! \nThen the button to restart",
+									40
+								);
 
-									// Hide game over panel
-									this.game_over_panel.visible = false;
+								// Show restart button after message is complete
+								this.time.delayedCall(2500, () => {
+									// Fade in restart button
+									this.restart_button.visible = true;
+									this.restart_button.alpha = 0;
 
-									// Stop all videos
-									this.stopAllVideos();
-
-									// Show and play restart video
-									this.restart_video.visible = true;
-									this.restart_video.play();
-
-									// Add 8-second delay before restarting
-									this.time.delayedCall(8000, () => {
-										// Stop everything again before scene restart
-										this.stopAllVideos();
-										this.stopAllSounds();
-										this.time.removeAllEvents();
-
-										// Force-remove all event listeners to prevent memory leaks
-										this.input.off('pointerdown');
-
-										// Use scene.start instead of scene.restart for a cleaner restart
-										this.scene.start("LevelG");
+									this.tweens.add({
+										targets: this.restart_button,
+										alpha: 1,
+										duration: 300,
+										ease: 'Linear'
 									});
-								}
-							});
+
+									// Add event listener to restart button
+									this.restart_button.on('pointerdown', () => {
+										// Play button click sound
+										this.buttonClickSound.play();
+
+										// Animate button click
+										this.tweens.add({
+											targets: this.restart_button,
+											scaleX: 0.9,
+											scaleY: 0.9,
+											duration: 100,
+											yoyo: true,
+											ease: 'Power1',
+											onComplete: () => {
+												// Cancel all pending timers to prevent scheduled sounds/videos
+												this.time.removeAllEvents();
+
+												// Stop all sounds immediately
+												this.stopAllSounds();
+
+												// Hide game over panel
+												this.game_over_panel.visible = false;
+
+												// Stop all videos
+												this.stopAllVideos();
+
+												// Show and play restart video
+												this.restart_video.visible = true;
+												this.restart_video.play();
+
+												// Add 8-second delay before restarting
+												this.time.delayedCall(8000, () => {
+													// Stop everything again before scene restart
+													this.stopAllVideos();
+													this.stopAllSounds();
+													this.time.removeAllEvents();
+
+													// Force-remove all event listeners to prevent memory leaks
+													this.input.off('pointerdown');
+
+													// Use transition manager for smooth restart
+													this.transitionManager.fadeToScene("Menu", 800);
+												});
+											}
+										});
+									});
+								});
+							}
 						});
 					});
 				}
@@ -512,6 +688,7 @@ export default class LevelG extends Phaser.Scene {
 		if (this.buttonClickSound) this.buttonClickSound.stop();
 		if (this.popUpSound) this.popUpSound.stop();
 		if (this.toggleClickSound) this.toggleClickSound.stop();
+		if (this.introductionSound) this.introductionSound.stop();
 
 		// Additional safety to clear any other sounds
 		this.sound.stopAll();
@@ -532,6 +709,9 @@ export default class LevelG extends Phaser.Scene {
 	destroy() {
 		this.stopAllVideos();
 		this.stopAllSounds();
+		if (this.transitionManager) {
+			this.transitionManager.destroy();
+		}
 		super.destroy();
 	}
 
