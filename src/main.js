@@ -44,7 +44,7 @@ class Boot extends Phaser.Scene {
 
 	create() {
 
-		this.scene.start("LevelG");
+		this.scene.start("Menu");
 		
 
 	}

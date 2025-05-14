@@ -652,7 +652,7 @@ export default class LevelF extends Phaser.Scene {
 													this.input.off('pointerdown');
 
 													// Use transition manager for smooth restart
-													this.transitionManager.fadeToScene("Menu", 800);
+													this.transitionManager.fadeToScene("LevelF", 800);
 												});
 											}
 										});

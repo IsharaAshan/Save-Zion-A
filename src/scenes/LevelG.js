@@ -20,10 +20,10 @@ export default class LevelG extends Phaser.Scene {
 	editorCreate() {
 
 		// clip_a
-		const clip_a = this.add.video(640, 360, "5_1");
+		const clip_a = this.add.video(640, 360, "7_1");
 
 		// clip_b
-		const clip_b = this.add.video(640, 360, "5_2");
+		const clip_b = this.add.video(640, 360, "7_2");
 		clip_b.visible = false;
 
 		// clip_c
@@ -652,7 +652,7 @@ export default class LevelG extends Phaser.Scene {
 													this.input.off('pointerdown');
 
 													// Use transition manager for smooth restart
-													this.transitionManager.fadeToScene("Menu", 800);
+													this.transitionManager.fadeToScene("LevelG", 800);
 												});
 											}
 										});

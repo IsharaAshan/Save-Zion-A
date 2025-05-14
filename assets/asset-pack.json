@@ -171,6 +171,34 @@
             },
             {
                 "url": [
+                    "assets/Videos/levelGClips/7_1.mp4"
+                ],
+                "type": "video",
+                "key": "7_1"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelGClips/7_2.mp4"
+                ],
+                "type": "video",
+                "key": "7_2"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelGClips/7_3.mp4"
+                ],
+                "type": "video",
+                "key": "7_3"
+            },
+            {
+                "url": [
+                    "assets/Videos/levelGClips/7_4.mp4"
+                ],
+                "type": "video",
+                "key": "7_4"
+            },
+            {
+                "url": [
                     "assets/Audio/Level Sounds/Back Road.ogg"
                 ],
                 "type": "audio",

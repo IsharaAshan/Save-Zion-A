@@ -20,7 +20,7 @@
             "scope": "PUBLIC",
             "x": 640,
             "y": 360,
-            "videoKey": "5_1",
+            "videoKey": "7_1",
             "videoAutoPlay": false,
             "videoLoop": false
         },
@@ -32,7 +32,7 @@
             "x": 640,
             "y": 360,
             "visible": false,
-            "videoKey": "5_2",
+            "videoKey": "7_2",
             "videoAutoPlay": false
         },
         {
@@ -43,7 +43,7 @@
             "x": 640,
             "y": 360,
             "visible": false,
-            "videoKey": "5_3",
+            "videoKey": "7_3",
             "videoAutoPlay": false,
             "videoLoop": false
         },
@@ -55,7 +55,7 @@
             "x": 640,
             "y": 360,
             "visible": false,
-            "videoKey": "5_4",
+            "videoKey": "7_4",
             "videoAutoPlay": false,
             "videoLoop": false
         },
