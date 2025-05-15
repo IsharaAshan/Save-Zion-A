@@ -374,6 +374,13 @@
             },
             {
                 "url": [
+                    "assets/Audio/type.wav"
+                ],
+                "type": "audio",
+                "key": "type"
+            },
+            {
+                "url": [
                     "assets/Audio/win_sound.wav"
                 ],
                 "type": "audio",

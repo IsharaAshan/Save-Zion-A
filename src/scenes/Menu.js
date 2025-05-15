@@ -84,7 +84,7 @@ export default class Menu extends Phaser.Scene {
 			// Play button click sound
 			this.buttonClickSound.play();
 
-			this.scene.start("LevelA");
+			this.scene.start("Interduction");
 			
 			// You can add code here to start the game or transition to another scene
 		});

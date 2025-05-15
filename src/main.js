@@ -1,4 +1,5 @@
 import Menu from "./scenes/Menu.js";
+import Interduction from "./scenes/Interduction.js";
 import LevelA from "./scenes/LevelA.js";
 import LevelB from "./scenes/LevelB.js";
 import LevelC from "./scenes/LevelC.js";
@@ -22,6 +23,7 @@ window.addEventListener('load', function () {
 	});
 
 	game.scene.add("Menu", Menu);
+	game.scene.add("Interduction", Interduction);
 	game.scene.add("LevelA", LevelA);
 	game.scene.add("LevelB", LevelB);
 	game.scene.add("LevelC", LevelC);
