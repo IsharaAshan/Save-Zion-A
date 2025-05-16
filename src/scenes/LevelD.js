@@ -361,7 +361,7 @@ export default class LevelD extends Phaser.Scene {
 		});
 
 		// After 8 seconds, hide introduction panel and start the game sequence
-		this.time.delayedCall(9000, () => {
+		this.time.delayedCall(6000, () => {
 			// Stop the introduction sound
 			if (this.introductionSound) {
 				this.introductionSound.stop();
