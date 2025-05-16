@@ -230,7 +230,7 @@ export default class LevelA extends Phaser.Scene {
 		// interdutcion_discription
 		const interdutcion_discription = this.add.text(640, 360, "", {});
 		interdutcion_discription.setOrigin(0.5, 0.5);
-		interdutcion_discription.text = "When Zion saw Babylon, he tried to escape to St. Ann,\nBut the duppies by Flat Bridge, they had another plan";
+		interdutcion_discription.text = "When Zion saw Babylon, he tried to escape to Saint,\nBut the duppies by Flat Bridge, they had another plan.";
 		interdutcion_discription.setStyle({ "fontFamily": "BebasNeue-Regular", "fontSize": "40px", "resolution": 3 });
 		interduction_panel.add(interdutcion_discription);
 
@@ -314,6 +314,9 @@ export default class LevelA extends Phaser.Scene {
 		// Initially set the quiz_panel to scale 0
 		this.quiz_panel.setScale(0);
 
+		// Create a transition manager instance for smooth scene transitions
+		this.transitionManager = new TransitionManager(this);
+
 		// Make introduction panel visible
 		this.interduction_panel.visible = true;
 
@@ -360,7 +363,7 @@ export default class LevelA extends Phaser.Scene {
 		this.time.delayedCall(1200, () => {
 			this.typeText(
 				this.interdutcion_discription, 
-				"When Zion saw Babylon, he tried to escape to St. Ann,\nBut the duppies by Flat Bridge, they had another plan", 
+				"When Zion saw Babylon, he tried to escape to Saint,\nBut the duppies by Flat Bridge, they had another plan", 
 				30
 			);
 		});
@@ -385,7 +388,7 @@ export default class LevelA extends Phaser.Scene {
 					// Cancel any remaining typing animations for intro panel
 					this.time.removeAllEvents();
 					this.interduction_Title.setText("Flat Bridge"); // Ensure text is fully displayed
-					this.interdutcion_discription.setText("When Zion saw Babylon, he tried to escape to St. Ann,\nBut the duppies by Flat Bridge, they had another plan");
+					this.interdutcion_discription.setText("When Zion saw Babylon, he tried to escape to Saint,\nBut the duppies by Flat Bridge, they had another plan");
 
 					// Remove any interactive elements from the panel
 					this.interduction_panel.removeInteractive();
@@ -555,8 +558,22 @@ export default class LevelA extends Phaser.Scene {
 						this.stopAllVideos();
 						this.stopAllSounds();
 
-						// Use transition manager to smoothly fade to LevelB
-						TransitionManager.fadeToScene(this, "LevelB", 800);
+						// Use proper error handling for the transition
+						try {
+							// Check if transitionManager exists and has the fadeToScene method
+							if (this.transitionManager && typeof this.transitionManager.fadeToScene === 'function') {
+								// Use transition manager to smoothly fade to LevelB
+								this.transitionManager.fadeToScene("LevelB", 800);
+							} else {
+								console.warn("TransitionManager not available or missing fadeToScene method");
+								// Fallback to direct scene transition
+								this.scene.start("LevelB");
+							}
+						} catch (error) {
+							console.error("Error during scene transition:", error);
+							// Fallback to direct scene transition
+							this.scene.start("LevelB");
+						}
 					});
 				}
 			});
@@ -708,7 +725,7 @@ export default class LevelA extends Phaser.Scene {
 		if (this.popUpSound) this.popUpSound.stop();
 		if (this.toggleClickSound) this.toggleClickSound.stop();
 		if (this.introductionSound) this.introductionSound.stop();
-
+		
 		// Additional safety to clear any other sounds
 		this.sound.stopAll();
 	}
@@ -728,6 +745,9 @@ export default class LevelA extends Phaser.Scene {
 	destroy() {
 		this.stopAllVideos();
 		this.stopAllSounds();
+		if (this.transitionManager) {
+			this.transitionManager.destroy();
+		}
 		super.destroy();
 	}
 
