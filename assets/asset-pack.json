@@ -272,13 +272,6 @@
             },
             {
                 "url": [
-                    "assets/Videos/interduction_video.mp4"
-                ],
-                "type": "video",
-                "key": "interduction_video"
-            },
-            {
-                "url": [
                     "assets/Audio/level_1_interduction.mp3"
                 ],
                 "type": "audio",

@@ -27,22 +27,12 @@
             "height": 128
         },
         {
-            "type": "Video",
-            "id": "5ade5830-e01f-4f03-a8ed-15bfd3fdbcf1",
-            "label": "interduction_video",
-            "x": 224,
-            "y": 346,
-            "scaleX": 0.2,
-            "scaleY": 0.2,
-            "videoKey": "interduction_video"
-        },
-        {
             "type": "Text",
             "id": "1937a594-735d-4231-bb6b-f2cf630995d9",
             "label": "game_interductions",
             "scope": "PUBLIC",
-            "x": 399,
-            "y": 182,
+            "x": 223.5,
+            "y": 195,
             "fixedWidth": 833,
             "fixedHeight": 330,
             "resolution": 3,

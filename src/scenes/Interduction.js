@@ -24,14 +24,8 @@ export default class Interduction extends Phaser.Scene {
 		rectangle_1.scaleY = 6;
 		rectangle_1.isFilled = true;
 
-		// interduction_video
-		const interduction_video = this.add.video(224, 346, "interduction_video");
-		interduction_video.scaleX = 0.2;
-		interduction_video.scaleY = 0.2;
-		interduction_video.play(true);
-
 		// game_interductions
-		const game_interductions = this.add.text(399, 182, "", {});
+		const game_interductions = this.add.text(223.5, 195, "", {});
 		game_interductions.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth": 833, "fixedHeight": 330, "fontFamily": "BebasNeue-Regular", "fontSize": "30px", "resolution": 3 });
 		game_interductions.setLineSpacing(12.5);
 
@@ -57,15 +51,13 @@ export default class Interduction extends Phaser.Scene {
 		this.game_interductions.setX(640); 
 		this.game_interductions.setOrigin(0.5, 0);
 
-		// Prepare the introduction text broken into 6 lines
+		// Prepare the introduction text broken into 5 lines
 		const introText = [
 			"It has been a crazy week for Zion,",
 			"he made the mistake of taking one egg from Babylon's nest...",
 			"and now the Babylon the hawk is determined to nyam him.",
 			"Help Zion escape as he runs all across Jamaica.",
-			"All you have to do is answer the questions correctly!",
-			"Then every scene has its own short script that is played while",
-			"the scene is being shown."
+			"All you have to do is answer the questions correctly!"
 		];
 
 		// Initialize with empty text
@@ -75,7 +67,7 @@ export default class Interduction extends Phaser.Scene {
 		this.typewriteText(introText);
 
 		// Wait 21 seconds before transitioning to LevelA
-		this.time.delayedCall(21000, this.transitionToLevelA, [], this);
+		this.time.delayedCall(15000, this.transitionToLevelA, [], this);
 	}
 
 	/**
@@ -86,7 +78,7 @@ export default class Interduction extends Phaser.Scene {
 		let currentLine = 0;
 		let currentChar = 0;
 		let fullText = '';
-		const delay = 40; // slightly faster for better readability
+		const delay = 55; // adjusted to make animation last 15 seconds (244 characters)
 
 		// Create a typing timer
 		this.typewriterTimer = this.time.addEvent({
