@@ -399,13 +399,13 @@ export default class LevelB extends Phaser.Scene {
 						this.miSound.play();
 
 						// After 5 seconds, transition to flat bridge sound
-						this.time.delayedCall(5000, () => {
+						this.time.delayedCall(4000, () => {
 							this.miSound.stop();
 							this.sound.play("blue_mountain");
 						});
 					} else {
 						// If miSound was already playing as fallback, just schedule the transition
-						this.time.delayedCall(5000, () => {
+						this.time.delayedCall(4000, () => {
 							this.miSound.stop();
 							this.sound.play("blue_mountain");
 						});

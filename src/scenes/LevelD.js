@@ -407,7 +407,7 @@ export default class LevelD extends Phaser.Scene {
 							this.flatBridgeSound.play();
 
 							// Show quiz panel after flatBridge sound has played for a bit
-							this.time.delayedCall(5000, () => {
+							this.time.delayedCall(2000, () => {
 								this.quiz_panel.visible = true;
 
 								// Play the pop up sound when the panel becomes active

@@ -25,8 +25,9 @@ export default class Interduction extends Phaser.Scene {
 		rectangle_1.isFilled = true;
 
 		// game_interductions
-		const game_interductions = this.add.text(223.5, 195, "", {});
-		game_interductions.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth": 833, "fixedHeight": 330, "fontFamily": "BebasNeue-Regular", "fontSize": "30px", "resolution": 3 });
+		const game_interductions = this.add.text(640, 360, "", {});
+		game_interductions.setOrigin(0.5, 0.5);
+		game_interductions.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth": 1193, "fixedHeight": 675, "fontFamily": "BebasNeue-Regular", "fontSize": "30px", "resolution": 3 });
 		game_interductions.setLineSpacing(12.5);
 
 		this.game_interductions = game_interductions;
@@ -47,16 +48,28 @@ export default class Interduction extends Phaser.Scene {
 		// Play game introduction sound
 		this.sound.play('game_interdution');
 
-		// Position text in the center of the screen horizontally
-		this.game_interductions.setX(640); 
-		this.game_interductions.setOrigin(0.5, 0);
+		// Position text in the center of the screen horizontally and vertically
+		this.game_interductions.setX(640);
+		this.game_interductions.setY(360); // Changed to 360 for vertical center
+		this.game_interductions.setOrigin(0.5, 0.5); // Changed to 0.5, 0.5 to center both horizontally and vertically
 
-		// Prepare the introduction text broken into 5 lines
+		// Ensure text is center-aligned within its bounds
+		this.game_interductions.setStyle({ 
+			"align": "center", 
+			"color": "#000000ff", 
+			"fixedWidth": 833, 
+			"fixedHeight": 330, 
+			"fontFamily": "BebasNeue-Regular", 
+			"fontSize": "30px", 
+			"resolution": 3,
+			"wordWrap": { width: 833 } // Added word wrap to ensure text fits properly
+		});
+
+		// Prepare the introduction text broken into 4 lines
 		const introText = [
 			"It has been a crazy week for Zion,",
-			"he made the mistake of taking one egg from Babylon's nest...",
-			"and now Babylon the hawk is determined to eat him.",
-			"Help Babylon escape as he runs all across Jamaica.",
+			"he made the mistake of taking one egg from Babylon's nest ..and now Babylon the hawk is determined to eat him.",
+			"Help Zion escape as he runs all across Jamaica..",
 			"All you have to do is answer the questions Correctly!"
 		];
 
@@ -88,7 +101,28 @@ export default class Interduction extends Phaser.Scene {
 					if (currentChar < textLines[currentLine].length) {
 						// Add the next character
 						fullText += textLines[currentLine][currentChar];
-						this.game_interductions.text = fullText;
+
+						// Apply the text with wordWrap to ensure all words show
+						this.game_interductions.setText(fullText);
+
+						// If we're at the last line, ensure better visibility
+						if (currentLine === 3) {
+							// Highlight the last line using a different color
+							this.game_interductions.setStyle({ 
+								"align": "center", 
+								"color": "#000000ff", 
+								"fixedWidth": 833, 
+								"fixedHeight": 350, // Increased height to ensure visibility
+								"fontFamily": "BebasNeue-Regular", 
+								"fontSize": "32px", // Slightly larger font for better visibility
+								"resolution": 3,
+								"wordWrap": { width: 800 } // Slightly narrower wrap width for better formatting
+							});
+
+							// Make sure it's fully visible within the screen
+							this.game_interductions.setY(340); // Adjusted position to ensure last line is visible
+						}
+
 						currentChar++;
 					} else {
 						// Line complete, move to next line
@@ -97,14 +131,28 @@ export default class Interduction extends Phaser.Scene {
 
 						// Only add newline if not the last line
 						if (currentLine < textLines.length) {
-							fullText += '\n';
-							this.game_interductions.text = fullText;
+							// Use single newline before the last line, double newlines otherwise
+							if (currentLine === 3) {
+								fullText += '\n'; // Single line break for the last line
+							} else {
+								fullText += '\n\n'; // Double line break for other paragraph separations
+							}
+							this.game_interductions.setText(fullText);
 
-							// Pause slightly longer between lines
-							this.typewriterTimer.paused = true;
-							this.time.delayedCall(300, () => {
-								this.typewriterTimer.paused = false;
-							});
+							// Special handling for the transition to the last line
+							if (currentLine === 3) {
+								// Pause longer before showing the important last line
+								this.typewriterTimer.paused = true;
+								this.time.delayedCall(500, () => {
+									this.typewriterTimer.paused = false;
+								});
+							} else {
+								// Normal pause between other lines
+								this.typewriterTimer.paused = true;
+								this.time.delayedCall(300, () => {
+									this.typewriterTimer.paused = false;
+								});
+							}
 						}
 					}
 				} else {

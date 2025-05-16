@@ -66,6 +66,6 @@ class Boot extends Phaser.Scene {
 
 	create() {
 		// All assets are now loaded, transition to Menu scene
-		this.scene.start("Menu");
+		this.scene.start("LevelC");
 	}
 }

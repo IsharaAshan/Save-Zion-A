@@ -400,12 +400,12 @@ export default class LevelC extends Phaser.Scene {
 						this.clip_b.setLoop(true);
 
 						// Stop miSound after 5 seconds and play dunns_driver sound
-						this.time.delayedCall(5000, () => {
+						this.time.delayedCall(2000, () => {
 							this.miSound.stop();
 							this.dunns_driver.play();
 
 							// Show quiz panel after dunns_driver sound has played for a bit
-							this.time.delayedCall(5000, () => {
+							this.time.delayedCall(4000, () => {
 								this.quiz_panel.visible = true;
 
 								// Play the pop up sound when the panel becomes active
