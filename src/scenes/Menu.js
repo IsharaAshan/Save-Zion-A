@@ -83,10 +83,17 @@ export default class Menu extends Phaser.Scene {
 		this.play_button.on('pointerdown', () => {
 			// Play button click sound
 			this.buttonClickSound.play();
-
-			this.scene.start("Interduction");
-			
-			// You can add code here to start the game or transition to another scene
+            
+			// Disable the button to prevent multiple clicks
+			this.play_button.disableInteractive();
+            
+			// Add fade out transition effect
+			this.cameras.main.fadeOut(1000, 0, 0, 0);
+            
+			// When fade effect completes, start the Interduction scene
+			this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
+				this.scene.start("Interduction");
+			});
 		});
 	}
 

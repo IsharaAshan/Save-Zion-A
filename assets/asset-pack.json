@@ -205,6 +205,11 @@
                 "key": "back _road"
             },
             {
+                "url": "assets/Images/background.png",
+                "type": "image",
+                "key": "background"
+            },
+            {
                 "url": "assets/Fonts/BebasNeue-Regular.ttf",
                 "format": "truetype",
                 "descriptors": {},
@@ -248,6 +253,13 @@
             },
             {
                 "url": [
+                    "assets/Audio/game_interdution.mp3"
+                ],
+                "type": "audio",
+                "key": "game_interdution"
+            },
+            {
+                "url": [
                     "assets/Audio/Level Sounds/Half Way TREE.ogg"
                 ],
                 "type": "audio",
@@ -257,6 +269,13 @@
                 "url": "assets/Images/home_button.png",
                 "type": "image",
                 "key": "home_button"
+            },
+            {
+                "url": [
+                    "assets/Videos/interduction_video.mp4"
+                ],
+                "type": "video",
+                "key": "interduction_video"
             },
             {
                 "url": [

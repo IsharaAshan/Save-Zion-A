@@ -21,22 +21,36 @@
             "scaleX": 10,
             "scaleY": 6,
             "isFilled": true,
-            "fillColor": "#000000",
+            "fillColor": "#ffffff",
+            "strokeColor": "#ffffff",
             "width": 128,
             "height": 128
+        },
+        {
+            "type": "Video",
+            "id": "5ade5830-e01f-4f03-a8ed-15bfd3fdbcf1",
+            "label": "interduction_video",
+            "x": 224,
+            "y": 346,
+            "scaleX": 0.2,
+            "scaleY": 0.2,
+            "videoKey": "interduction_video"
         },
         {
             "type": "Text",
             "id": "1937a594-735d-4231-bb6b-f2cf630995d9",
             "label": "game_interductions",
             "scope": "PUBLIC",
-            "x": 136,
-            "y": 255,
+            "x": 399,
+            "y": 182,
+            "fixedWidth": 833,
+            "fixedHeight": 330,
             "resolution": 3,
             "lineSpacing": 12.5,
             "align": "center",
             "fontFamily": "BebasNeue-Regular",
-            "fontSize": "30px"
+            "fontSize": "30px",
+            "color": "#000000ff"
         }
     ],
     "plainObjects": [],

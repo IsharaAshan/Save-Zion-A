@@ -23,11 +23,16 @@ export default class Interduction extends Phaser.Scene {
 		rectangle_1.scaleX = 10;
 		rectangle_1.scaleY = 6;
 		rectangle_1.isFilled = true;
-		rectangle_1.fillColor = 0;
+
+		// interduction_video
+		const interduction_video = this.add.video(224, 346, "interduction_video");
+		interduction_video.scaleX = 0.2;
+		interduction_video.scaleY = 0.2;
+		interduction_video.play(true);
 
 		// game_interductions
-		const game_interductions = this.add.text(136, 255, "", {});
-		game_interductions.setStyle({ "align": "center", "fontFamily": "BebasNeue-Regular", "fontSize": "30px", "resolution": 3 });
+		const game_interductions = this.add.text(399, 182, "", {});
+		game_interductions.setStyle({ "align": "center", "color": "#000000ff", "fixedWidth": 833, "fixedHeight": 330, "fontFamily": "BebasNeue-Regular", "fontSize": "30px", "resolution": 3 });
 		game_interductions.setLineSpacing(12.5);
 
 		this.game_interductions = game_interductions;
@@ -45,69 +50,78 @@ export default class Interduction extends Phaser.Scene {
 	create() {
 		this.editorCreate();
 
-		// Store the full text for the typing effect
-		this.fullText = "It has been a crazy week for Zion, \nhe made the mistake of taking one egg from Babylon's nest...\nand now the Babylon the hawk is determined to nyam him.Help \nBabylon escape as he runs all across Jamaica..All you have to do is answer the questions Correctly!\nthen every scene has its own short script that is played while the scene is being shown";
+		// Play game introduction sound
+		this.sound.play('game_interdution');
 
-		 // Create typing sound
-		this.typingSound = this.sound.add('type', { 
-			loop: true,
-			volume: 0.5 
-		});
-		
-		// Start the typing effect
-		this.typeText();
-	}
-
-	typeText() {
 		// Position text in the center of the screen horizontally
 		this.game_interductions.setX(640); 
 		this.game_interductions.setOrigin(0.5, 0);
-		
-		 // Play typing sound in loop
-		this.typingSound.play();
-		
-		// Faster typing speed to fit within 5 seconds
-		const typeSpeed = 20; 
-		let currentCharacter = 0;
-		let currentLine = "";
-		
-		// Create a timer event that adds one character at a time
-		this.typingTimer = this.time.addEvent({
-			delay: typeSpeed,
+
+		// Prepare the introduction text broken into 6 lines
+		const introText = [
+			"It has been a crazy week for Zion,",
+			"he made the mistake of taking one egg from Babylon's nest...",
+			"and now the Babylon the hawk is determined to nyam him.",
+			"Help Zion escape as he runs all across Jamaica.",
+			"All you have to do is answer the questions correctly!",
+			"Then every scene has its own short script that is played while",
+			"the scene is being shown."
+		];
+
+		// Initialize with empty text
+		this.game_interductions.text = "";
+
+		// Start typing animation
+		this.typewriteText(introText);
+
+		// Wait 21 seconds before transitioning to LevelA
+		this.time.delayedCall(21000, this.transitionToLevelA, [], this);
+	}
+
+	/**
+	 * Creates a typewriter effect on the text
+	 * @param {string[]} textLines - Array of text lines to type out
+	 */
+	typewriteText(textLines) {
+		let currentLine = 0;
+		let currentChar = 0;
+		let fullText = '';
+		const delay = 40; // slightly faster for better readability
+
+		// Create a typing timer
+		this.typewriterTimer = this.time.addEvent({
+			delay: delay,
 			callback: () => {
-				// Get next character
-				const char = this.fullText[currentCharacter];
-				
-				// Add to text with proper handling
-				if (char === '\n') {
-					// For line breaks, preserve them properly
-					this.game_interductions.text += char;
+				if (currentLine < textLines.length) {
+					if (currentChar < textLines[currentLine].length) {
+						// Add the next character
+						fullText += textLines[currentLine][currentChar];
+						this.game_interductions.text = fullText;
+						currentChar++;
+					} else {
+						// Line complete, move to next line
+						currentLine++;
+						currentChar = 0;
+
+						// Only add newline if not the last line
+						if (currentLine < textLines.length) {
+							fullText += '\n';
+							this.game_interductions.text = fullText;
+
+							// Pause slightly longer between lines
+							this.typewriterTimer.paused = true;
+							this.time.delayedCall(300, () => {
+								this.typewriterTimer.paused = false;
+							});
+						}
+					}
 				} else {
-					// Add normal character
-					this.game_interductions.text += char;
-				}
-				
-				// Add slight pause after punctuation, but shorter to fit in 5 seconds
-				if (['.', '!', '?', ','].includes(char)) {
-					this.typingTimer.delay = typeSpeed * 2; // Shorter pause after punctuation
-				} else {
-					this.typingTimer.delay = typeSpeed; // Reset to normal speed
-				}
-				
-				currentCharacter++;
-				
-				// When typing animation completes, stop the sound and add 5-second delay before transition
-				if (currentCharacter >= this.fullText.length) {
-					this.typingTimer.destroy();
-					
-					// Stop the typing sound
-					this.typingSound.stop();
-					
-					// Wait 5 seconds after typing is complete, then transition
-					this.time.delayedCall(5000, this.transitionToLevelA, [], this);
+					// All lines typed, stop the timer
+					this.typewriterTimer.remove();
 				}
 			},
-			repeat: this.fullText.length - 1
+			callbackScope: this,
+			loop: true
 		});
 	}
 
