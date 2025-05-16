@@ -55,9 +55,9 @@ export default class Interduction extends Phaser.Scene {
 		const introText = [
 			"It has been a crazy week for Zion,",
 			"he made the mistake of taking one egg from Babylon's nest...",
-			"and now the Babylon the hawk is determined to nyam him.",
-			"Help Zion escape as he runs all across Jamaica.",
-			"All you have to do is answer the questions correctly!"
+			"and now Babylon the hawk is determined to eat him.",
+			"Help Babylon escape as he runs all across Jamaica.",
+			"All you have to do is answer the questions Correctly!"
 		];
 
 		// Initialize with empty text

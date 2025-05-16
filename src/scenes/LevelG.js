@@ -27,11 +27,11 @@ export default class LevelG extends Phaser.Scene {
 		clip_b.visible = false;
 
 		// clip_c
-		const clip_c = this.add.video(640, 360, "5_3");
+		const clip_c = this.add.video(640, 360, "7_3");
 		clip_c.visible = false;
 
 		// clip_d
-		const clip_d = this.add.video(640, 360, "5_4");
+		const clip_d = this.add.video(640, 360, "7_4");
 		clip_d.visible = false;
 
 		// restart_video
@@ -210,7 +210,7 @@ export default class LevelG extends Phaser.Scene {
 		// game_over msg
 		const game_over_msg = this.add.text(0, 200, "", {});
 		game_over_msg.setOrigin(0.5, 0.5);
-		game_over_msg.text = "Answer Wrong Game Over ! \nThen the button to restart";
+		game_over_msg.text = "Answer Wrong Game Over ! \nClick the button to restart";
 		game_over_msg.setStyle({ "align": "center", "fontFamily": "BebasNeue-Regular", "fontSize": "57px" });
 		game_over_pop_up.add(game_over_msg);
 
@@ -594,7 +594,7 @@ export default class LevelG extends Phaser.Scene {
 								// Start typing animation for game over message
 								this.typeText(
 									this.game_over_msg, 
-									"Answer Wrong Game Over ! \nThen the button to restart",
+									"Answer Wrong Game Over ! \nClick the button to restart",
 									40
 								);
 

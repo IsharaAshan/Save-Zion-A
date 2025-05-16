@@ -210,7 +210,7 @@ export default class LevelE extends Phaser.Scene {
 		// game_over msg
 		const game_over_msg = this.add.text(0, 200, "", {});
 		game_over_msg.setOrigin(0.5, 0.5);
-		game_over_msg.text = "Answer Wrong Game Over ! \nThen the button to restart";
+		game_over_msg.text = "Answer Wrong Game Over ! \nClick the button to restart";
 		game_over_msg.setStyle({ "align": "center", "fontFamily": "BebasNeue-Regular", "fontSize": "57px" });
 		game_over_pop_up.add(game_over_msg);
 
@@ -594,7 +594,7 @@ export default class LevelE extends Phaser.Scene {
 								// Start typing animation for game over message
 								this.typeText(
 									this.game_over_msg, 
-									"Answer Wrong Game Over ! \nThen the button to restart",
+									"Answer Wrong Game Over ! \nClick the button to restart",
 									40
 								);
 

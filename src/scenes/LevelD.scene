@@ -78,6 +78,7 @@
             "scope": "PUBLIC",
             "x": 1001,
             "y": 417,
+            "visible": false,
             "list": [
                 {
                     "type": "Image",
@@ -245,7 +246,7 @@
                             "y": 5,
                             "originX": 0.5,
                             "originY": 0.5,
-                            "text": "B. The Prime Minister, Cabinet Ministers, and Government \nMinistries",
+                            "text": "B. The Prime Minister, Cabinet Ministers, and  Governor \nGeneral",
                             "resolution": 2,
                             "fontFamily": "BebasNeue-Regular",
                             "fontSize": "18px",
@@ -409,7 +410,7 @@
                             "y": 200,
                             "originX": 0.5,
                             "originY": 0.5,
-                            "text": "Answer Wrong Game Over ! \nThen the button to restart",
+                            "text": "Answer Wrong Game Over ! \nClick the button to restart",
                             "align": "center",
                             "fontFamily": "BebasNeue-Regular",
                             "fontSize": "57px"
@@ -425,6 +426,7 @@
             "scope": "PUBLIC",
             "x": -0.0000015544082287988203,
             "y": 3.0083398883107293e-7,
+            "visible": false,
             "list": [
                 {
                     "type": "Rectangle",

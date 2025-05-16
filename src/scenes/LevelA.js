@@ -211,7 +211,7 @@ export default class LevelA extends Phaser.Scene {
 		// game_over msg
 		const game_over_msg = this.add.text(0, 200, "", {});
 		game_over_msg.setOrigin(0.5, 0.5);
-		game_over_msg.text = "Answer Wrong Game Over ! \nThen the button to restart";
+		game_over_msg.text = "Answer Wrong Game Over ! \nClick the button to restart";
 		game_over_msg.setStyle({ "align": "center", "fontFamily": "BebasNeue-Regular", "fontSize": "57px" });
 		game_over_pop_up.add(game_over_msg);
 
@@ -363,7 +363,7 @@ export default class LevelA extends Phaser.Scene {
 		this.time.delayedCall(1200, () => {
 			this.typeText(
 				this.interdutcion_discription, 
-				"When Zion saw Babylon, he tried to escape to Saint,\nBut the duppies by Flat Bridge, they had another plan", 
+				"When Zion saw Babylon, he tried to escape to Saint Ann,\nBut the duppies by Flat Bridge, they had another plan", 
 				30
 			);
 		});
@@ -388,7 +388,7 @@ export default class LevelA extends Phaser.Scene {
 					// Cancel any remaining typing animations for intro panel
 					this.time.removeAllEvents();
 					this.interduction_Title.setText("Flat Bridge"); // Ensure text is fully displayed
-					this.interdutcion_discription.setText("When Zion saw Babylon, he tried to escape to Saint,\nBut the duppies by Flat Bridge, they had another plan");
+					this.interdutcion_discription.setText("When Zion saw Babylon, he tried to escape to Saint Ann,\nBut the duppies by Flat Bridge, they had another plan");
 
 					// Remove any interactive elements from the panel
 					this.interduction_panel.removeInteractive();
@@ -630,7 +630,7 @@ export default class LevelA extends Phaser.Scene {
 								// Start typing animation for game over message
 								this.typeText(
 									this.game_over_msg, 
-									"Answer Wrong Game Over ! \nThen the button to restart",
+									"Answer Wrong Game Over ! \nClick the button to restart",
 									40
 								);
 
@@ -725,7 +725,7 @@ export default class LevelA extends Phaser.Scene {
 		if (this.popUpSound) this.popUpSound.stop();
 		if (this.toggleClickSound) this.toggleClickSound.stop();
 		if (this.introductionSound) this.introductionSound.stop();
-		
+
 		// Additional safety to clear any other sounds
 		this.sound.stopAll();
 	}

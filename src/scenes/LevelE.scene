@@ -409,7 +409,7 @@
                             "y": 200,
                             "originX": 0.5,
                             "originY": 0.5,
-                            "text": "Answer Wrong Game Over ! \nThen the button to restart",
+                            "text": "Answer Wrong Game Over ! \nClick the button to restart",
                             "align": "center",
                             "fontFamily": "BebasNeue-Regular",
                             "fontSize": "57px"

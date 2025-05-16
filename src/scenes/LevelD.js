@@ -40,6 +40,7 @@ export default class LevelD extends Phaser.Scene {
 
 		// quiz_panel
 		const quiz_panel = this.add.container(1001, 417);
+		quiz_panel.visible = false;
 
 		// quizBackground
 		const quizBackground = this.add.image(0, 0, "QuizBackground");
@@ -124,7 +125,7 @@ export default class LevelD extends Phaser.Scene {
 		// text
 		const text = this.add.text(200, 5, "", {});
 		text.setOrigin(0.5, 0.5);
-		text.text = "B. The Prime Minister, Cabinet Ministers, and Government \nMinistries";
+		text.text = "B. The Prime Minister, Cabinet Ministers, and  Governor \nGeneral";
 		text.setStyle({ "color": "#000000ff", "fontFamily": "BebasNeue-Regular", "fontSize": "18px", "resolution": 2 });
 		answe_b.add(text);
 
@@ -210,12 +211,13 @@ export default class LevelD extends Phaser.Scene {
 		// game_over msg
 		const game_over_msg = this.add.text(0, 200, "", {});
 		game_over_msg.setOrigin(0.5, 0.5);
-		game_over_msg.text = "Answer Wrong Game Over ! \nThen the button to restart";
+		game_over_msg.text = "Answer Wrong Game Over ! \nClick the button to restart";
 		game_over_msg.setStyle({ "align": "center", "fontFamily": "BebasNeue-Regular", "fontSize": "57px" });
 		game_over_pop_up.add(game_over_msg);
 
 		// Interduction_panel
 		const interduction_panel = this.add.container(-0.0000015544082287988203, 3.0083398883107293e-7);
+		interduction_panel.visible = false;
 
 		// interduction_blackScreen
 		const interduction_blackScreen = this.add.rectangle(640, 360, 128, 128);
@@ -591,7 +593,7 @@ export default class LevelD extends Phaser.Scene {
 								// Start typing animation for game over message
 								this.typeText(
 									this.game_over_msg, 
-									"Answer Wrong Game Over ! \nThen the button to restart",
+									"Answer Wrong Game Over ! \nClick the button to restart",
 									40
 								);
 
