@@ -40,14 +40,32 @@ window.addEventListener('load', function () {
 class Boot extends Phaser.Scene {
 
 	preload() {
+		// Create loading text
+		let loadingText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, 'Loading...', {
+			fontSize: '32px',
+			fill: '#FFF'
+		}).setOrigin(0.5, 0.5);
 		
+		// Create loading progress bar
+		let progressBar = this.add.graphics();
+		let progressBox = this.add.graphics();
+		progressBox.fillStyle(0x222222, 0.8);
+		progressBox.fillRect(this.cameras.main.width / 2 - 160, this.cameras.main.height / 2 + 30, 320, 50);
+		
+		// Register progress event
+		this.load.on('progress', function (value) {
+			progressBar.clear();
+			progressBar.fillStyle(0xffffff, 1);
+			progressBar.fillRect(this.cameras.main.width / 2 - 150, this.cameras.main.height / 2 + 40, 300 * value, 30);
+			loadingText.setText('Loading: ' + parseInt(value * 100) + '%');
+		}, this);
+		
+		// Load the asset pack
 		this.load.pack("pack", "assets/asset-pack.json");
 	}
 
 	create() {
-
+		// All assets are now loaded, transition to Menu scene
 		this.scene.start("Menu");
-		
-
 	}
 }
