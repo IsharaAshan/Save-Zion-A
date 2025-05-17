@@ -361,7 +361,7 @@ export default class LevelD extends Phaser.Scene {
 		});
 
 		// After 8 seconds, hide introduction panel and start the game sequence
-		this.time.delayedCall(6000, () => {
+		this.time.delayedCall(9000, () => {
 			// Stop the introduction sound
 			if (this.introductionSound) {
 				this.introductionSound.stop();
@@ -402,7 +402,7 @@ export default class LevelD extends Phaser.Scene {
 						this.clip_b.setLoop(true);
 
 						// Stop miSound after 5 seconds and play flatBridge sound
-						this.time.delayedCall(1000, () => {
+						this.time.delayedCall(0, () => {
 							this.miSound.stop();
 							this.flatBridgeSound.play();
 

@@ -362,7 +362,7 @@ export default class LevelE extends Phaser.Scene {
 		});
 
 		// After 8 seconds, hide introduction panel and start the game sequence
-		this.time.delayedCall(8000, () => {
+		this.time.delayedCall(9000, () => {
 			// Stop the introduction sound
 			if (this.introductionSound) {
 				this.introductionSound.stop();

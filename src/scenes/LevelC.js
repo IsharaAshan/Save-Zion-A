@@ -359,7 +359,7 @@ export default class LevelC extends Phaser.Scene {
 		});
 
 		// After 8 seconds, hide introduction panel and start the game sequence
-		this.time.delayedCall(8000, () => {
+		this.time.delayedCall(8500, () => {
 			// Stop the introduction sound
 			if (this.introductionSound) {
 				this.introductionSound.stop();
@@ -405,7 +405,7 @@ export default class LevelC extends Phaser.Scene {
 							this.dunns_driver.play();
 
 							// Show quiz panel after dunns_driver sound has played for a bit
-							this.time.delayedCall(4000, () => {
+							this.time.delayedCall(3000, () => {
 								this.quiz_panel.visible = true;
 
 								// Play the pop up sound when the panel becomes active

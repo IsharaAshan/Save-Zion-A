@@ -425,7 +425,7 @@ export default class LevelB extends Phaser.Scene {
 						this.clip_b.setLoop(true);
 
 						// Only delay for the quiz panel after clip_b has been visible for a while
-						this.time.delayedCall(5000, () => {
+						this.time.delayedCall(2000, () => {
 							this.quiz_panel.visible = true;
 
 							// Play the pop up sound when the panel becomes active
