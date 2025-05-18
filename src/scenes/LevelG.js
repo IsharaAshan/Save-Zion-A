@@ -344,7 +344,7 @@ export default class LevelG extends Phaser.Scene {
 			this.miSound = this.sound.add("mi_sound");
 			this.miSound.setLoop(true);
 		}
-		this.flatBridgeSound = this.sound.add("back _road");
+		this.flatBridgeSound = this.sound.add("champs_stadium");
 		this.buttonClickSound = this.sound.add("button_click");
 		this.popUpSound = this.sound.add("pop_up");
 		this.toggleClickSound = this.sound.add("toggle_click");
